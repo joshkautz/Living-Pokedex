@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.6.10",
     "react": "^18.0.0",
-    "react-device-detect": "github:joshykautz/react-device-detect",
+    "react-device-detect": "2.2.2",
     "react-dom": "^18.0.0",
     "react-firebase-hooks": "^5.0.3",
     "sass": "^1.49.11",
