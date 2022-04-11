@@ -1,3 +1,11 @@
+![Living Pokédex Banner](https://pbs.twimg.com/profile_banners/1470800535443943425/1647530094/1500x500)
+
+# Living Pokédex 📝🎮
+
+### [1. Getting Started with Create React App ](#getting-started-with-create-react-app) 💻
+### [2. Firebase](#firebase) 🔥
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +76,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<br>
+
+# Firebase
+
+## [.firebaserc](https://firebase.google.com/docs/cli#initialize_a_firebase_project)
+>The **`.firebaserc`** file stores your settings for [managing project aliases](https://firebase.google.com/docs/cli#project_aliases) and [managing deploy targets](https://firebase.google.com/docs/cli/targets#manage_deploy_targets).
+
+## [firebase.json](https://firebase.google.com/docs/hosting/full-config#where-to-define-config)
+>You define your Firebase Hosting configuration in your **`firebase.json`** file. Firebase automatically creates your **`firebase.json`** file at the root of your project directory when you run the `firebase init` command.
+>
+>You can find a [full **`firebase.json`** configuration example](https://firebase.google.com/docs/hosting/full-config#firebase-json_example) (covering only Firebase Hosting) at the bottom of the Firebase Docs page. Note that a **`firebase.json`** file can also contain [configurations for other Firebase services](https://firebase.google.com/docs/cli#the_firebasejson_file).
+>
+>You can check the deployed **`firebase.json`** content using the [Hosting REST API](https://firebase.google.com/docs/reference/hosting/rest/v1beta1/sites.releases/list?apix_params=%7B%22parent%22%3A%22sites%2F%3Cyour-site-name%3E%22%2C%22pageSize%22%3A1%7D).
+
+## [firestore.indexes.json](https://firebase.google.com/docs/reference/firestore/indexes)
+>Cloud Firestore automatically creates indexes to support the most common types of queries, but allows you to define custom indexes and index overrides as described in the [Cloud Firestore guides](https://firebase.google.com/docs/firestore/query-data/index-overview).
+>
+>You can create, modify and deploy custom indexes in the Firebase console, or using the CLI. From the CLI, edit your index configuration file, with default filename **`firestore.indexes.json`**, and deploy using the `firebase deploy` command.
+
+## [firestore.rules](https://firebase.google.com/docs/firestore/security/get-started#use_the_firebase_cli)
+>You can deploy rules using the [Firebase CLI](https://firebase.google.com/docs/cli). Using the CLI allows you to keep your rules under version control with your application code and deploy rules as part of your existing deployment process.
+>
+>With [Cloud Firestore Security Rules](https://firebase.google.com/docs/firestore/security/rules-structure), you can focus on building a great user experience without having to manage infrastructure or write server-side authentication and authorization code.
+>
+>Security rules provide access control and data validation in a simple yet expressive format. To build user-based and role-based access systems that keep your users' data safe, you need to use Firebase Authentication with Cloud Firestore Security Rules.

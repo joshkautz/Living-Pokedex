@@ -1,0 +1,33 @@
+///////////////////////////////////////
+/////////// Containers ////////////////
+//////////////////////////////////////
+@use "./mixins.scss" as *;
+
+///////// Build Container Mixin /////////
+@mixin container($container: $containerDefault) {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  padding: 0 map-get($container, "padding--mobile");
+  max-width: map-get($container, "max-width");
+  @include media(tablet, only) {
+    padding: 0 map-get($container, "padding--tablet");
+  }
+  @include media(desktop) {
+    padding: 0 map-get($container, "padding--desktop");
+  }
+}
+
+///////// Container Maps /////////
+$containerDefault: (
+  "max-width": $site_container,
+  "padding--desktop": $site_container_padding,
+  "width--desktop": $container,
+  "padding--tablet": $site_container_padding_tablet,
+  "padding--mobile": $site_container_padding_mobile,
+);
+
+///////// Container Classes /////////
+.container {
+  @include container;
+}

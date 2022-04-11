@@ -1,25 +1,93 @@
-import logo from './logo.svg';
-import './App.css';
+// Packages
+import React, { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-function App() {
+// Utilities
+import { pokemon } from "./pokemon";
+import { auth } from "./firebase/auth";
+import { createPokedex, createUser, getPokedex, getUser } from "./firebase/firestore";
+
+// Components
+import Header from "./globals/header/header";
+import LoadingIndicator from "./components/loadingIndicator/loadingIndicator";
+import PokemonGrid from "./components/pokemonGrid/pokemonGrid";
+import SignIn from "./components/signIn/signIn";
+
+const App = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const [showLoading, setShowLoading] = useState(loading);
+  const [pokedex, setPokedex] = useState();
+  let hasOverlay = showLoading || !user;
+
+  useEffect(() => {
+    // Show loading indicator if authentication state is still being loaded.
+    if (loading) {
+      setShowLoading(true);
+    } else {
+      setShowLoading(false);
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    const loadPokedex = async () => {
+      setShowLoading(true);
+
+      try {
+        // Check if Firestore User exists for the current user.
+        var userSnapshot = await getUser(user);
+
+        // Create Firestore User if one doesn't exist for the current user.
+        if (!userSnapshot.exists()) {
+          createUser(user);
+        }
+
+        // Check if Firestore Pokedex exists for the current user.
+        var pokedexSnapshot = await getPokedex(user);
+
+        // Create Firestore Pokedex if one doesn't exist for the current user.
+        if (!pokedexSnapshot.exists()) {
+          await createPokedex(user);
+          pokedexSnapshot = await getPokedex(user);
+        }
+
+        setPokedex(pokedexSnapshot.data());
+      } catch (err) {
+        console.log(err);
+      }
+
+      setShowLoading(false);
+    };
+
+    const unloadPokedex = () => {
+      setPokedex(undefined);
+    };
+
+    // Show empty pokedex if not authenticated.
+    if (user) {
+      loadPokedex();
+    } else {
+      unloadPokedex();
+    }
+  }, [user]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {user && <Header />}
+      <main className={`${hasOverlay ? "fixed" : ""}`}>
+        <div className="container">
+          {hasOverlay && (
+            <div className="overlay">
+              {showLoading && <LoadingIndicator />}
+              {!showLoading && <SignIn setShowLoading={setShowLoading} />}
+            </div>
+          )}
+          {pokemon && (
+            <PokemonGrid data={pokemon} user={user} pokedex={pokedex} />
+          )}
+        </div>
+      </main>
+    </>
   );
-}
+};
 
 export default App;

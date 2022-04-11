@@ -1,0 +1,84 @@
+@use "sass:math";
+
+///////// Rem Base /////////////
+$rem-base: 16; /* Henseforth known as 1rem  |  used for rem() mixin */
+$base-font-size: rem($rem-base);
+
+//used to convert pixels into rems
+@function rem($pixels, $context: $rem-base) {
+  @return math.div($pixels, $context) * 1rem;
+  // @return ($pixels / $context) * 1rem;
+}
+
+///////// Colors /////////////
+$black: black;
+$white: #ffffff;
+$grey: #898581;
+$white--green: #f0f9f4;
+$green--light: #cef0b4;
+$teal--light: #94e1cc;
+$teal: #38b4ab;
+$orange: #ff8003;
+$yellow: #e5f098;
+$brown: #4c241d;
+
+///////// Fonts /////////////
+$ff-Ale: "Alegreya Sans", sans-serif;
+$ff-Mont: "Montserrat", sans-serif;
+
+///////// Shadows /////////////
+$boxShadow: 0 9px 9px -7px rgba(0, 0, 0, 0.35);
+$boxShadow--light: 0 9px 9px -7px rgba(0, 0, 0, 0.1);
+
+///////////// transitions //////////////
+$tran_primary: all 350ms ease-in-out;
+$tran_secondary: all 600ms linear;
+$tran_tertiary: all 90ms ease-in-out;
+
+/////////////// weights ////////////////
+$fw_extraLight: 200;
+$fw_light: 300;
+$fw_regular: 400;
+$fw_medium: 500;
+$fw_semibold: 600;
+$fw_bold: 700;
+$fw_black: 900;
+
+/////////////// z-index ////////////////
+$z_below: -1;
+$z_default: 1;
+$z_aboveDefault: 2;
+$z_low: 10;
+$z_med: 20;
+$z_high: 30;
+$z_overlay: 100;
+$z_max: 1000;
+
+///////////// transitions //////////////
+$tran_primary: all 350ms ease-in-out;
+$tran_secondary: all 600ms linear;
+$tran_tertiary: all 90ms ease-in-out;
+
+//////////// breakpoints //////////////
+$mobile-max: 787px;
+$tablet-min: calc(#{$mobile-max} + 1px);
+$tablet-max: 1023px;
+$desktop-min--small: calc(#{$tablet-max} + 1px);
+$desktop-max--small: 1220px;
+$desktop-min: calc(#{$desktop-max--small} + 1px);
+
+//////////// Containers //////////////
+// Creates a content container with built-in padding so your content is always off the edge of the window in a centrally controlled location
+$site_container: 1440px; // the max width of the content, not including padding
+
+// Global content padding from container
+$site_container_padding: 80px;
+$site_container_padding_tablet: 56px;
+$site_container_padding_mobile: 5%; // Mobile (rec: percentage)
+
+$cityPadding: 12%;
+// Define container using calc - allows for easy changes to individual container elements
+$container: calc(
+  #{$site_container} + (#{$site_container_padding} * 2)
+); // Desktop
+$container--city: calc(#{$site_container} + (#{$cityPadding} * 2));

@@ -1,0 +1,179 @@
+/////////////////////////////////////
+////////////// MIXINS //////////////
+///////////////////////////////////
+@use "sass:math";
+@use "sass:selector";
+
+@import "./variables.scss";
+
+//////////// BREAKPOINTS //////////////
+
+//to use: place breakpoint specific css inside of the mixin
+//eg. @include media($mobile){ styles here }
+//to toggle tablet breakpoint type add 'min' or 'max', 'only' for both
+@mixin media($size: tablet, $type: min) {
+  @if $size == mobile {
+    @media (max-width: #{$mobile-max}) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @if $type == min {
+      @media (min-width: ($tablet-min)) {
+        @content;
+      }
+    } @else if $type == max {
+      @media (max-width: #{$tablet-max}) {
+        @content;
+      }
+    } @else if $type == only {
+      @media (min-width: ($tablet-min)) and (max-width: #{$tablet-max} ) {
+        @content;
+      }
+    }
+  } @else if $size == desktopSmall {
+    @if $type == min {
+      @media (min-width: ($desktop-min--small)) {
+        @content;
+      }
+    } @else if $type == max {
+      @media (max-width: #{$desktop-max--small}) {
+        @content;
+      }
+    } @else if $type == only {
+      @media (min-width: ($desktop-min--small)) and (max-width: #{$desktop-max--small} ) {
+        @content;
+      }
+    }
+  } @else if $size == desktop {
+    @media (min-width: ($desktop-min)) {
+      @content;
+    }
+  }
+}
+
+/////LOCALE Target/////
+@mixin locale($locale: "en-IN") {
+  [lang="#{$locale}"] {
+    @content;
+  }
+}
+
+@mixin unify-parent($child) {
+  @at-root #{selector.unify(&, $child)} {
+    @content;
+  }
+}
+
+//////////// Grid and Structure //////////////
+//mixin for css grid with fallback to flexbox for ie 11
+@mixin grid($columns: 4, $colgap: 20, $rowgap: 20) {
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, minmax(0, 1fr));
+  gap: calc(#{$rowgap} * 1px) calc(#{$colgap} * 1px);
+}
+
+// Clearfix
+// makes a parent div expand to wrap all floated elements
+// to use, add "@include clearfix" to a container
+@mixin clearfix {
+  &:after {
+    display: block;
+    height: 0;
+    font-size: 0;
+    content: "";
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+//force child to overflow its parent to be full width
+@mixin fullbleed {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+}
+
+//////////// ADA //////////////
+//only for screen reader use
+@mixin sr_only() {
+  position: absolute !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+// Focus Resets to display on tab or hover
+@mixin focusHandler {
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    @content;
+  }
+  &.focus-visible {
+    @content;
+  }
+  &:hover {
+    @content;
+  }
+}
+
+@mixin defaultBtn {
+  border: none;
+  background: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin diagonal($position: "right", $diagonalWidth: 25px) {
+  position: relative;
+  background: $white;
+  transition: $tran_primary;
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    transform-origin: bottom left;
+    transform: scaleX(-1);
+    transform: skewX(-21deg);
+    clip-path: inset(0px -7px 0px 0px);
+    z-index: -1;
+    transition: $tran_primary;
+    @if $position == left {
+      right: 0;
+    } @else if $position == right {
+      left: 0;
+    }
+  }
+  &:after {
+    background: $white;
+    width: calc(100% + #{$diagonalWidth});
+  }
+  &:before {
+    width: calc(100% + calc(#{$diagonalWidth} + 10px));
+    background: rgba($white--green, 1);
+  }
+  @include unify-parent("button") {
+    @include focusHandler {
+      background: $white--green;
+      &:after {
+        background: $white--green;
+      }
+      &:before {
+        width: calc(100% + calc(#{$diagonalWidth} + 15px));
+        background: rgba($teal--light, 1);
+      }
+    }
+  }
+}

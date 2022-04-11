@@ -1,0 +1,42 @@
+@use "../../assets/sass/utility/mixins.scss" as *;
+
+.header {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    $teal--light 0%,
+    $teal--light 50%,
+    $green--light 100%
+  );
+  overflow: hidden;
+  box-shadow: $boxShadow;
+  z-index: $z_overlay;
+  @include media(tablet, min) {
+    position: fixed;
+  }
+  .logo {
+    @include diagonal;
+    padding: 20px 20px 20px 40px;
+    span {
+      position: relative;
+      color: $orange;
+      font-weight: $fw_bold;
+      z-index: $z_default;
+      background: $white;
+      font-family: $ff-Ale;
+    }
+  }
+  .signout {
+    @include defaultBtn;
+    @include diagonal(left);
+    padding: 20px 40px;
+    background: $white;
+    font-family: $ff-Mont;
+    text-transform: uppercase;
+    font-weight: $fw_bold;
+    color: $brown;
+  }
+}
