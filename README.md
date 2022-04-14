@@ -102,3 +102,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 >With [Cloud Firestore Security Rules](https://firebase.google.com/docs/firestore/security/rules-structure), you can focus on building a great user experience without having to manage infrastructure or write server-side authentication and authorization code.
 >
 >Security rules provide access control and data validation in a simple yet expressive format. To build user-based and role-based access systems that keep your users' data safe, you need to use Firebase Authentication with Cloud Firestore Security Rules.
+
+# Pokemon Data
+We get the pokemon data from here: https://github.com/msikma/pokesprite/blob/master/data/pokemon.json
+We get the sprites from this same repo: https://github.com/msikma/pokesprite
+
+We only grab the sprites that we're gonna use, by running the script below:
+
+```bash
+#!/bin/bash
+INDEX=1
+for POKEMON in $(cat /mnt/c/Users/Josh/Projects/pokesprite/data/pokemon.json | jq -r 'to_entries[] | "\(.value | .slug.eng) \n "')
+do
+    if [ "$INDEX" -gt "898" ]
+    then
+        exit 0
+    else
+        echo $POKEMON
+        cp /mnt/c/Users/Josh/Projects/pokesprite/pokemon-gen8/regular/$POKEMON.png /mnt/c/Users/Josh/Projects/Living-Pokedex-Create-React-App/public/sprites/
+        ((INDEX++))
+    fi
+done
+```
