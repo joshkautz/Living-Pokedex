@@ -81,9 +81,7 @@ const App = () => {
               {!showLoading && <SignIn setShowLoading={setShowLoading} />}
             </div>
           )}
-          {pokemon && (
-            <PokemonGrid data={pokemon} user={user} pokedex={pokedex} />
-          )}
+          <PokemonGrid pokemon={pokemon} user={user} pokedex={pokedex} />
         </div>
       </main>
     </>
