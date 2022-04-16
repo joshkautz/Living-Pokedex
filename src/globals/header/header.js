@@ -4,7 +4,7 @@ import styles from "./header.module.scss";
 const Header = () => { 
   return (
     <header className={styles['header']}>
-      <div className={styles['logo']} ><span>Living Pokedex</span></div>
+      <div className={styles['logo']} ><span>Living Pokédex</span></div>
       <button className={styles['signout']} onClick={logout}>Sign out</button>
     </header>
   );
