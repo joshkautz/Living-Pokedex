@@ -14,7 +14,7 @@ import PokemonGrid from "./components/pokemonGrid/pokemonGrid";
 import SignIn from "./components/signIn/signIn";
 
 const App = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [showLoading, setShowLoading] = useState(loading);
   const [pokedex, setPokedex] = useState();
   let hasOverlay = showLoading || !user;
