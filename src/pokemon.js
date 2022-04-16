@@ -29102,7 +29102,7 @@ const data = {
   },
 };
 
-var pokemon = new Array();
+var pokemon = [];
 
 for (var key in data) {
   pokemon.push(data[key]);
