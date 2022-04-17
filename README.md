@@ -105,6 +105,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Pokemon Data
 We get the pokemon data from here: https://github.com/msikma/pokesprite/blob/master/data/pokemon.json
+
 We get the sprites from this same repo: https://github.com/msikma/pokesprite
 
 We only grab the sprites that we're gonna use, by running the script below:

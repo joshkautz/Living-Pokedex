@@ -25,7 +25,7 @@ const PokemonCard = ({ pokemon, user, caught }) => {
       <div className={styles['pokemonCard__img']}>
         <img
           alt=""
-          src={`/sprites/${pokemon.slug.eng}.png`}
+          src={`./sprites/${pokemon.slug.eng}.png`}
         />
       </div>
       <div className={styles['pokemonCard__details']}>
