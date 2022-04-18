@@ -5,32 +5,31 @@
   },
   "hosting": {
     "public": "build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "!(/|**/*.js|**/*.css|**/*.map|**/*.json|**/*.ico|**/*.jpg|**/*.gif|**/*.png)",
+        "destination": "/",
+        "type": 301
       }
     ],
     "headers": [
       {
         "source": "**/*.@(jpg|jpeg|gif|png)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=604800"
-        } ]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=604800"
+          }
+        ]
       },
       {
         "source": "**/*.@(js|css)",
         "headers": [
-            {
-                "key": "Cache-Control",
-                "value": "max-age=86400"
-            }
+          {
+            "key": "Cache-Control",
+            "value": "max-age=86400"
+          }
         ]
       }
     ]
