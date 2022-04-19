@@ -8,7 +8,7 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "redirects": [
       {
-        "source": "!(/|**/*.js|**/*.css|**/*.map|**/*.json|**/*.ico|**/*.jpg|**/*.gif|**/*.png)",
+        "source": "!(/|**/*.js|**/*.css|**/*.map|**/*.json|**/*.txt|**/*.xml|**/*.webmanifest|**/*.svg|**/*.ico|**/*.jpg|**/*.gif|**/*.png)",
         "destination": "/",
         "type": 301
       }
