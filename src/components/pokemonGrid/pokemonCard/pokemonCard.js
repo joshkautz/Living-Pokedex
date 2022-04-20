@@ -24,6 +24,8 @@ const PokemonCard = ({ pokemon, user, caught }) => {
     >
       <div className={styles['pokemonCard__img']}>
         <img
+          height="50px"
+          width="auto"
           alt=""
           src={`./sprites/${pokemon.slug.eng}.png`}
         />
