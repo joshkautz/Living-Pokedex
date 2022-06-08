@@ -39,16 +39,35 @@ jobs:
           shopt -s expand_aliases
           alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
           preview_url="${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}"
-          preview_url=${preview_url#*//}
-          allowedReferrers=$(gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID} | jq -r '.restrictions.browserKeyRestrictions.allowedReferrers[]')
-          echo $allowedReferrers
-          allowedReferrers="$allowedReferrers $preview_url"
-          echo $allowedReferrers
-          allowedReferrers=$(for i in ${allowedReferrers}; do echo "\"$i\","; done;)
-          echo $allowedReferrers
-          allowedReferrers=${allowedReferrers::-1}
-          echo $allowedReferrers
+          preview_url=$(basename $preview_url)
 
-          # TODO: Use "firebase hosting:channel:list" to see which preview channels have expired. Remove them from the list of allowedReferrers.
+          # Add default URLs. Add the new preview channel URL.
+          allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app $preview_url"
+
+          # Add existing preview channels URLs.
+          validChannels=$(firebase hosting:channel:list --json | jq -r '.result.channels[].url')
+
+          for i in ${validChannels}
+          do
+            add=true
+            i=$(basename $i);
+            for j in ${allowedReferrers}
+            do
+              if [ "$i" = "$j" ]
+              then
+                echo "$i already exists in allowedReferrers";
+                add=false;
+                break;
+              fi
+            done
+            if [ "$add" = true ]
+            then
+              echo "Adding $i to allowedReferrers";
+              allowedReferrers+=" $i"
+            fi
+          done
+
+          allowedReferrers=$(for i in ${allowedReferrers}; do echo "\"$i\","; done;)
+          allowedReferrers=${allowedReferrers::-1}
 
           gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID}?updateMask=restrictions --request PATCH --data '{ "restrictions" : { "browserKeyRestrictions" : { "allowedReferrers" : [ '"$allowedReferrers"' ]}}}'
