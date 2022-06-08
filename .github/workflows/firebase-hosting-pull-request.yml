@@ -40,8 +40,8 @@ jobs:
           alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
           preview_url="${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}"
           preview_url=${preview_url#*//}
-          allowedReferrers=$(gcurl https://apikeys.googleapis.com/v2/projects/285902590177/locations/global/keys/6003ecc6-a4eb-4405-be8c-076dd74b53d1 | jq -r '.restrictions.browserKeyRestrictions.allowedReferrers[]')
+          allowedReferrers=$(gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID} | jq -r '.restrictions.browserKeyRestrictions.allowedReferrers[]')
           allowedReferrers="$allowedReferrers $preview_url"
           allowedReferrers=$(for i in ${allowedReferrers}; do echo "\"$i\","; done;)
           allowedReferrers=${allowedReferrers::-1}
-          gcurl https://apikeys.googleapis.com/v2/projects/285902590177/locations/global/keys/6003ecc6-a4eb-4405-be8c-076dd74b53d1?updateMask=restrictions --request PATCH --data '{ "restrictions" : { "browserKeyRestrictions" : { "allowedReferrers" : [ '"$allowedReferrers"' ]}}}'
+          gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID}?updateMask=restrictions --request PATCH --data '{ "restrictions" : { "browserKeyRestrictions" : { "allowedReferrers" : [ '"$allowedReferrers"' ]}}}'
