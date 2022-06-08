@@ -10,8 +10,6 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    outputs:
-      output3: ${{ steps.step3.outputs.urls }}
     steps:
 
       - name: Check out Repository
@@ -31,6 +29,8 @@ jobs:
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
         env:
           API_KEY_SERVICE_ACCOUNT: ${{ secrets.API_KEY_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
+          PROJECT_NUMBER: 285902590177
+          KEY_ID: 6003ecc6-a4eb-4405-be8c-076dd74b53d1
         run: |
           wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
           tar -xvzf linux_amd64.tgz
