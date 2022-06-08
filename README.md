@@ -172,3 +172,6 @@ firebase deploy --only hosting --project living-pokedex-de070 --json
 
 # TODO:
 - [ ] Improve README about Sprites. Add bash script for PowerShell.
+
+
+GitHub FIREBASE_TOKEN secret was created using `firebase login:ci` to create a token so that we can use the Firebase Tools CLI on the CI/CD system in GitHub Actions. When I get the list of existing preview channels.
