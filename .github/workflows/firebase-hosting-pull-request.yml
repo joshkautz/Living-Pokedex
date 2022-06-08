@@ -6,13 +6,12 @@
 # "Adding restrictions to API keys" Google Document: https://cloud.google.com/api-keys/docs/add-restrictions-api-keys
 
 name: Deploy to Firebase Hosting Preview Channel
-'on': pull_request
+"on": pull_request
 jobs:
   build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
-
       - name: Check out Repository
         uses: actions/checkout@v3
 
@@ -23,8 +22,8 @@ jobs:
         id: deploy_firebase_hosting_channel
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}"
           projectId: living-pokedex-de070
 
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
@@ -43,26 +42,28 @@ jobs:
 
           # Add default URLs. Add the new preview channel URL.
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app $preview_url"
+          echo $allowedReferrers
 
           # Add existing preview channels URLs.
           validChannels=$(firebase hosting:channel:list --json | jq -r '.result.channels[].url')
+          echo $validChannels
 
           for i in ${validChannels}
           do
             add=true
-            i=$(basename $i);
+            i=$(basename $i)
             for j in ${allowedReferrers}
             do
               if [ "$i" = "$j" ]
               then
-                echo "$i already exists in allowedReferrers";
-                add=false;
-                break;
+                echo "$i already exists in allowedReferrers"
+                add=false
+                break
               fi
             done
             if [ "$add" = true ]
             then
-              echo "Adding $i to allowedReferrers";
+              echo "Adding $i to allowedReferrers"
               allowedReferrers+=" $i"
             fi
           done
