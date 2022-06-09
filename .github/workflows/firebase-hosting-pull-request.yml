@@ -36,22 +36,16 @@ jobs:
           # Install Firebase Tools
           curl -sL https://firebase.tools | bash
 
-          # Install Google's OAuth Tool
-          wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
-          tar -xvzf linux_amd64.tgz
-          
-          echo "$API_KEY_SERVICE_ACCOUNT" >> ~/credentials.json
-          shopt -s expand_aliases
-          alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
-          preview_url="${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}"
-          preview_url=$(basename $preview_url)
-
-          # Add default URLs. Add the new preview channel URL.
-          allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app $preview_url"
+          # Add default referrers.
+          allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
 
-          # Add existing preview channels URLs.
-          # validChannels=$(firebase hosting:channel:list --json | jq -r '.result.channels[].url')
+          # Add new preview channel. TODO: Combine commands.
+          newPreviewChannel=$(basename "${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}")
+          allowedReferrers+=" $newPreviewChannel"
+          echo $allowedReferrers
+
+          # Add existing preview channels.
           validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
           echo $validChannels
 
@@ -75,7 +69,16 @@ jobs:
             fi
           done
 
+          # Format data for gcurl.
           allowedReferrers=$(for i in ${allowedReferrers}; do echo "\"$i\","; done;)
           allowedReferrers=${allowedReferrers::-1}
 
+          # Install Google's OAuth Tool.
+          wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
+          tar -xvzf linux_amd64.tgz
+
+          # Prepare Google Service Account credentials for gcurl.
+          echo "$API_KEY_SERVICE_ACCOUNT" >> ~/credentials.json
+          shopt -s expand_aliases
+          alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
           gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID}?updateMask=restrictions --request PATCH --data '{ "restrictions" : { "browserKeyRestrictions" : { "allowedReferrers" : [ '"$allowedReferrers"' ]}}}'
