@@ -41,18 +41,19 @@ jobs:
           echo $allowedReferrers
 
           # Add new preview channel. TODO: Combine commands.
-          newPreviewChannel=$(basename "${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}")
-          allowedReferrers+=" $newPreviewChannel"
+          allowedReferrers+=" $(basename "${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}")"
           echo $allowedReferrers
 
           # Add existing preview channels.
           validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
+          #TODO: Remove echo below
+          echo $validChannels
+          validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
           echo $validChannels
 
           for i in ${validChannels}
           do
             add=true
-            i=$(basename $i)
             for j in ${allowedReferrers}
             do
               if [ "$i" = "$j" ]
@@ -79,6 +80,10 @@ jobs:
 
           # Prepare Google Service Account credentials for gcurl.
           echo "$API_KEY_SERVICE_ACCOUNT" >> ~/credentials.json
+
+          # Create gcurl command.
           shopt -s expand_aliases
           alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
+
+          # Update Google API Key website restrictions.
           gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID}?updateMask=restrictions --request PATCH --data '{ "restrictions" : { "browserKeyRestrictions" : { "allowedReferrers" : [ '"$allowedReferrers"' ]}}}'
