@@ -40,16 +40,9 @@ jobs:
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
 
-          # Add new preview channel. TODO: Combine commands.
-          allowedReferrers+=" $(basename "${{ steps.deploy_firebase_hosting_channel.outputs.details_url }}")"
-          echo $allowedReferrers
-
-          # Add existing preview channels.
+          # Add preview channels.
           validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
-          #TODO: Remove echo below
-          echo $validChannels
           validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
-          echo $validChannels
 
           for i in ${validChannels}
           do
@@ -73,6 +66,7 @@ jobs:
           # Format data for gcurl.
           allowedReferrers=$(for i in ${allowedReferrers}; do echo "\"$i\","; done;)
           allowedReferrers=${allowedReferrers::-1}
+          echo $allowedReferrers
 
           # Install Google's OAuth Tool.
           wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
