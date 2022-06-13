@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 // Utilities
 import { pokemon } from "./pokemon";
 import { auth } from "./firebase/auth";
-import { createPokedex, createUser, getPokedex, getUser } from "./firebase/firestore";
+import { createPokedex, getPokedex } from "./firebase/firestore";
 
 // Components
 import Header from "./globals/header/header";
