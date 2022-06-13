@@ -21,6 +21,7 @@ const SignIn = (props) => {
       <hr></hr>
       <br />
       <button className={styles['signIn__button']} onClick={() => logInAnonymously(setShowLoading)}><User/>Continue as guest</button>
+      <p>By continuing, you agree to Living Pokédex's <a href="./terms_of_use.html"  target="_blank">Terms of Use</a> and confirm that you have read Living Pokédex's <a href="./privacy_policy.html"  target="_blank">Privacy Policy</a>.</p>
     </div>
   )
 }
