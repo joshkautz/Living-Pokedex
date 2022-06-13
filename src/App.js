@@ -33,14 +33,6 @@ const App = () => {
       setShowLoading(true);
 
       try {
-        // Check if Firestore User exists for the current user.
-        var userSnapshot = await getUser(user);
-
-        // Create Firestore User if one doesn't exist for the current user.
-        if (!userSnapshot.exists()) {
-          createUser(user);
-        }
-
         // Check if Firestore Pokedex exists for the current user.
         var pokedexSnapshot = await getPokedex(user);
 

@@ -12,21 +12,6 @@ const updatePokedex = async (user, id, currentState) => {
   });
 };
 
-const getUser = async (user) => {
-  return await getDoc(doc(db, "users", user.uid));
-};
-
-const createUser = async (user) => {
-  return await setDoc(doc(db, "users", user.uid), {
-    displayName: user.displayName,
-    email: user.email,
-    isAnonymous: user.isAnonymous,
-    phoneNumber: user.phoneNumber,
-    photoURL: user.photoURL,
-    uid: user.uid,
-  });
-};
-
 const createPokedex = async (user) => {
   return await setDoc(doc(db, "pokedex", user.uid), {
     1: false,
@@ -930,4 +915,4 @@ const createPokedex = async (user) => {
   });
 };
 
-export { createUser, createPokedex, getPokedex, updatePokedex, getUser };
+export { createPokedex, getPokedex, updatePokedex };
