@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 // Utilities
 import { pokemon } from "./pokemon";
 import { auth } from "./firebase/auth";
-import { createPokedex, createUser, getPokedex, getUser } from "./firebase/firestore";
+import { createPokedex, getPokedex } from "./firebase/firestore";
 
 // Components
 import Header from "./globals/header/header";
@@ -33,14 +33,6 @@ const App = () => {
       setShowLoading(true);
 
       try {
-        // Check if Firestore User exists for the current user.
-        var userSnapshot = await getUser(user);
-
-        // Create Firestore User if one doesn't exist for the current user.
-        if (!userSnapshot.exists()) {
-          createUser(user);
-        }
-
         // Check if Firestore Pokedex exists for the current user.
         var pokedexSnapshot = await getPokedex(user);
 
