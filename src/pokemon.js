@@ -29110,7 +29110,6 @@ for (var key in data) {
 
 pokemon.sort((a, b) => (parseInt(a.idx) > parseInt(b.idx) ? 1 : -1));
 
-pokemon = pokemon.slice(0, 898);
-
+pokemon = pokemon.slice(0, 905);
 
 export { pokemon };
