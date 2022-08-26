@@ -4,8 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 // Utilities
 import { pokemon } from "./pokemon";
-import { auth } from "./firebase/auth";
-import { createPokedex, getPokedex } from "./firebase/firestore";
+import { auth, listenToFirestore } from "./firebase";
 
 // Components
 import Header from "./globals/header/header";
@@ -16,7 +15,7 @@ import SignIn from "./components/signIn/signIn";
 const App = () => {
   const [user, loading] = useAuthState(auth);
   const [showLoading, setShowLoading] = useState(loading);
-  const [pokedex, setPokedex] = useState();
+  const [pokedex, setPokedex] = useState({});
   let hasOverlay = showLoading || !user;
 
   useEffect(() => {
@@ -29,37 +28,11 @@ const App = () => {
   }, [loading]);
 
   useEffect(() => {
-    const loadPokedex = async () => {
-      setShowLoading(true);
+    console.log(pokedex);
+  }, [pokedex]);
 
-      try {
-        // Check if Firestore Pokedex exists for the current user.
-        var pokedexSnapshot = await getPokedex(user);
-
-        // Create Firestore Pokedex if one doesn't exist for the current user.
-        if (!pokedexSnapshot.exists()) {
-          await createPokedex(user);
-          pokedexSnapshot = await getPokedex(user);
-        }
-
-        setPokedex(pokedexSnapshot.data());
-      } catch (err) {
-        console.log(err);
-      }
-
-      setShowLoading(false);
-    };
-
-    const unloadPokedex = () => {
-      setPokedex(undefined);
-    };
-
-    // Show empty pokedex if not authenticated.
-    if (user) {
-      loadPokedex();
-    } else {
-      unloadPokedex();
-    }
+  useEffect(() => {
+    listenToFirestore(setPokedex, setShowLoading, user);
   }, [user]);
 
   return (
