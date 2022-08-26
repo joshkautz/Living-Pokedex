@@ -1,4 +1,9 @@
+import { doc, updateDoc, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+// eslint-disable-next-line
+import { getAnalytics, logEvent } from "firebase/analytics";
+import { getFirestore, onSnapshot } from "firebase/firestore";
+import { isDesktop } from "react-device-detect";
 
 import {
   GoogleAuthProvider,
@@ -15,15 +20,56 @@ import {
   unlink,
 } from "firebase/auth";
 
-import { getFirestore } from "firebase/firestore";
+const firebaseConfig = {
+  apiKey: "AIzaSyBPN-xAhCAIOsHsX19tHKyO-ysdwjUqH4Q",
+  authDomain: "living-pokedex-de070.firebaseapp.com",
+  projectId: "living-pokedex-de070",
+  storageBucket: "living-pokedex-de070.appspot.com",
+  messagingSenderId: "285902590177",
+  appId: "1:285902590177:web:20cbcbecea8842b18fa7a0",
+  measurementId: "G-PCLLVY5FNP",
+};
 
-import { config } from "./config";
-
-import { isDesktop } from "react-device-detect";
-
-const app = initializeApp(config);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
+// eslint-disable-next-line
+const analytics = getAnalytics(app);
+const firestore = getFirestore(app);
+
+// Example: https://firebase.google.com/docs/firestore/query-data/get-data#get_multiple_documents_from_a_collection
+const listenToFirestore = (setPokedex, setShowLoading, user) => {
+  setShowLoading(true);
+
+  if (user === undefined || user === null) {
+    setPokedex({});
+    return;
+  }
+
+  onSnapshot(
+    doc(firestore, "pokedex", user.uid),
+    (document) => {
+      setShowLoading(false);
+      setPokedex(document.data());
+      if (document.data() === undefined)
+        setDoc(doc(firestore, "pokedex", user.uid), {});
+    },
+    (error) => {
+      setShowLoading(false);
+      setPokedex({});
+    }
+  );
+};
+
+const updatePokedex = (user, id, state) => {
+  try {
+    updateDoc(doc(firestore, "pokedex", user.uid), {
+      [id]: state,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // Example: https://firebase.google.com/docs/auth/web/anonymous-auth
 const logInAnonymously = async (setShowLoading) => {
@@ -162,7 +208,8 @@ const unlinkWithProvider = async (provider) => {
 
 export {
   auth,
-  db,
+  updatePokedex,
+  listenToFirestore,
   linkWithGoogle,
   linkWithTwitter,
   linkWithFacebook,
