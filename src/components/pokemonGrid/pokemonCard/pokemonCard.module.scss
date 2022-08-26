@@ -8,11 +8,10 @@
   justify-content: space-between;
   padding: 10px;
   border: 1px solid rgba($grey, 0.2);
-  cursor: pointer;
   background: transparent;
-  @include focusHandler {
-    background: rgba($yellow, 0.8);
-  }
+  overflow: hidden;
+  cursor: pointer;
+  @include focusHandler;
   &__img {
     position: relative;
     height: 56px;

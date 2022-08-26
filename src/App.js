@@ -64,7 +64,7 @@ const App = () => {
 
   return (
     <>
-      {user && <Header />}
+      {user && !hasOverlay && <Header />}
       <main className={`${hasOverlay ? "fixed" : ""}`}>
         <div className="container">
           {hasOverlay && (

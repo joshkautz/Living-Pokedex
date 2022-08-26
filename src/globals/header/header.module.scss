@@ -4,6 +4,7 @@
   position: sticky;
   display: flex;
   justify-content: space-between;
+  height: $headingHeight;
   width: 100%;
   background: linear-gradient(
     90deg,
@@ -13,7 +14,7 @@
   );
   overflow: hidden;
   box-shadow: $boxShadow;
-  z-index: $z_overlay;
+  z-index: $z_high;
   @include media(tablet, min) {
     position: fixed;
   }
