@@ -76,9 +76,10 @@ $site_container_padding: 80px;
 $site_container_padding_tablet: 56px;
 $site_container_padding_mobile: 5%; // Mobile (rec: percentage)
 
-$cityPadding: 12%;
 // Define container using calc - allows for easy changes to individual container elements
 $container: calc(
   #{$site_container} + (#{$site_container_padding} * 2)
 ); // Desktop
-$container--city: calc(#{$site_container} + (#{$cityPadding} * 2));
+
+// Sizing
+$headingHeight: 59.5px;
