@@ -1,16 +1,25 @@
-![Living Pokédex Banner](https://pbs.twimg.com/profile_banners/1470800535443943425/1647530094/1500x500)
+![Living Pokédex Banner](/README/banner.png "Living Pokédex Banner")
 
-# Living Pokédex 📝🎮
+# Living Pokédex 📝
+![Production GitHub Workflow Status](https://github.com/joshkautz/Living-Pokedex-Create-React-App/actions/workflows/firebase-hosting-merge.yml/badge.svg "Production GitHub Workflow Status")
 
-### [1. Getting Started with Create React App ](#getting-started-with-create-react-app) 💻
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses Google Firebase services for authentication, hosting, data persistence, and analytics.
+
+### [1. Development ](#development) 💻
 ### [2. Firebase](#firebase) 🔥
 ### [3. Sprites](#sprites) 🎨
 ### [4. Deployment](#deployment) 📦
 
 
-# Getting Started with Create React App
+# Development
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Install Node v16.x.x
+
+How to build
+```bash
+npm install
+npm start
+```
 
 ## Available Scripts
 
