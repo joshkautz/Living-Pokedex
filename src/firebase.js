@@ -1,8 +1,11 @@
-import { doc, updateDoc, setDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  getDoc,
+  setDoc,
+  getFirestore,
+} from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-// eslint-disable-next-line
-import { getAnalytics, logEvent } from "firebase/analytics";
-import { getFirestore, onSnapshot } from "firebase/firestore";
 import { isDesktop } from "react-device-detect";
 
 import {
@@ -33,74 +36,54 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// eslint-disable-next-line
-const analytics = getAnalytics(app);
 const firestore = getFirestore(app);
 
-// Example: https://firebase.google.com/docs/firestore/query-data/get-data#get_multiple_documents_from_a_collection
-const listenToFirestore = (setPokedex, setShowLoading, user) => {
-  setShowLoading(true);
+// const getPokedexDocument = (user) => {
+//   return doc(firestore, "pokedex", user.uid);
+// };
 
-  if (user === undefined || user === null) {
-    setPokedex({});
+const getPokedexDocument = (user) => {
+  if (user) {
+    const docRef = doc(firestore, "pokedex", user.uid);
+
+    getDoc(docRef).then((docSnap) => {
+      if (!docSnap.exists()) setDoc(docRef, {});
+    });
+
+    return docRef;
+  } else {
     return;
   }
-
-  onSnapshot(
-    doc(firestore, "pokedex", user.uid),
-    (document) => {
-      setShowLoading(false);
-      setPokedex(document.data());
-      if (document.data() === undefined)
-        setDoc(doc(firestore, "pokedex", user.uid), {});
-    },
-    (error) => {
-      setShowLoading(false);
-      setPokedex({});
-    }
-  );
 };
 
-const updatePokedex = (user, id, state) => {
-  try {
-    updateDoc(doc(firestore, "pokedex", user.uid), {
-      [id]: state,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+const updatePokedexDocument = async (user, id, state) => {
+  await updateDoc(doc(firestore, "pokedex", user.uid), {
+    [id]: state,
+  });
 };
 
 // Example: https://firebase.google.com/docs/auth/web/anonymous-auth
-const logInAnonymously = async (setShowLoading) => {
-  setShowLoading(true);
+const logInAnonymously = async () => {
   try {
     await signInAnonymously(auth);
   } catch (err) {
     console.log(err);
   }
-  setShowLoading(false);
 };
 
 // Example: https://firebase.google.com/docs/auth/web/google-signin
-const logInWithGoogle = async (setShowLoading) => {
-  setShowLoading(true);
+const logInWithGoogle = async () => {
   await signInWithProvider(new GoogleAuthProvider());
-  setShowLoading(false);
 };
 
 // Example: https://firebase.google.com/docs/auth/web/twitter-login
-const logInWithTwitter = async (setShowLoading) => {
-  setShowLoading(true);
+const logInWithTwitter = async () => {
   await signInWithProvider(new TwitterAuthProvider());
-  setShowLoading(false);
 };
 
 // Example: https://firebase.google.com/docs/auth/web/facebook-login
-const logInWithFacebook = async (setShowLoading) => {
-  setShowLoading(true);
+const logInWithFacebook = async () => {
   await signInWithProvider(new FacebookAuthProvider());
-  setShowLoading(false);
 };
 
 const signInWithProvider = async (provider) => {
@@ -208,8 +191,8 @@ const unlinkWithProvider = async (provider) => {
 
 export {
   auth,
-  updatePokedex,
-  listenToFirestore,
+  getPokedexDocument,
+  updatePokedexDocument,
   linkWithGoogle,
   linkWithTwitter,
   linkWithFacebook,

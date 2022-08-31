@@ -1,10 +1,11 @@
 // Packages
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useDocumentData } from "react-firebase-hooks/firestore";
 
 // Utilities
 import { pokemon } from "./pokemon";
-import { auth, listenToFirestore } from "./firebase";
+import { auth, getPokedexDocument } from "./firebase";
 
 // Components
 import Header from "./globals/header/header";
@@ -13,40 +14,36 @@ import PokemonGrid from "./components/pokemonGrid/pokemonGrid";
 import SignIn from "./components/signIn/signIn";
 
 const App = () => {
-  const [user, loading] = useAuthState(auth);
-  const [showLoading, setShowLoading] = useState(loading);
-  const [pokedex, setPokedex] = useState({});
-  let hasOverlay = showLoading || !user;
+  const [authValue, authLoading] = useAuthState(auth);
+  const [docValue, docLoading] = useDocumentData(getPokedexDocument(authValue));
 
-  useEffect(() => {
-    // Show loading indicator if authentication state is still being loaded.
-    if (loading) {
-      setShowLoading(true);
-    } else {
-      setShowLoading(false);
-    }
-  }, [loading]);
+  console.log({
+    authValue: authValue,
+    authLoading: authLoading,
+    docValue: docValue,
+    docLoading: docLoading,
+  });
 
-  useEffect(() => {
-    console.log(pokedex);
-  }, [pokedex]);
-
-  useEffect(() => {
-    listenToFirestore(setPokedex, setShowLoading, user);
-  }, [user]);
+  const Overlay = (
+    <div className="overlay">
+      {(authLoading || docLoading) && <LoadingIndicator />}
+      {!(authLoading || docLoading) && <SignIn />}
+    </div>
+  );
 
   return (
     <>
-      {user && !hasOverlay && <Header />}
-      <main className={`${hasOverlay ? "fixed" : ""}`}>
+      {authValue && !authLoading && !docLoading && <Header />}
+      <main
+        className={`${!authValue || authLoading || docLoading ? "fixed" : ""}`}
+      >
         <div className="container">
-          {hasOverlay && (
-            <div className="overlay">
-              {showLoading && <LoadingIndicator />}
-              {!showLoading && <SignIn setShowLoading={setShowLoading} />}
-            </div>
-          )}
-          <PokemonGrid pokemon={pokemon} user={user} pokedex={pokedex} />
+          {(!authValue || authLoading || docLoading) && Overlay}
+          <PokemonGrid
+            pokemon={pokemon}
+            user={authValue}
+            pokedex={docValue ? docValue : {}}
+          />
         </div>
       </main>
     </>

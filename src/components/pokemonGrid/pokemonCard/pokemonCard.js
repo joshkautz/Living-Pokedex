@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./pokemonCard.module.scss";
-import { updatePokedex } from "../../../firebase";
+import { updatePokedexDocument } from "../../../firebase";
 
 const PokemonCard = ({ pokemon, user, caught }) => {
   return (
@@ -8,7 +8,7 @@ const PokemonCard = ({ pokemon, user, caught }) => {
       className={`${styles["pokemonCard"]} ${
         caught ? styles["pokemonCard--active"] : ""
       }`}
-      onClick={() => updatePokedex(user, parseInt(pokemon.idx), !caught)}
+      onClick={() => updatePokedexDocument(user, parseInt(pokemon.idx), !caught)}
     >
       <div className={styles["pokemonCard__img"]}>
         <img
