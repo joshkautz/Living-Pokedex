@@ -13,29 +13,28 @@ import { ReactComponent as Twitter } from "../../images/twitter-brands.inline.sv
 import { ReactComponent as Google } from "../../images/google-brands.inline.svg";
 import { ReactComponent as User } from "../../images/user-solid.inline.svg";
 
-const SignIn = (props) => {
-  const setShowLoading = props.setShowLoading;
+const SignIn = () => {
 
   return (
     <div className={styles["signIn"]}>
       <h1 className={styles["signIn__h1"]}>Complete your Living Pokédex!</h1>
       <button
         className={styles["signIn__button"]}
-        onClick={() => logInWithGoogle(setShowLoading)}
+        onClick={logInWithGoogle}
       >
         <Google />
         Sign in with Google
       </button>
       <button
         className={styles["signIn__button"]}
-        onClick={() => logInWithTwitter(setShowLoading)}
+        onClick={logInWithTwitter}
       >
         <Twitter />
         Sign in with Twitter
       </button>
       <button
         className={styles["signIn__button"]}
-        onClick={() => logInWithFacebook(setShowLoading)}
+        onClick={logInWithFacebook}
       >
         <Facebook />
         Sign in with Facebook
@@ -45,7 +44,7 @@ const SignIn = (props) => {
       <br />
       <button
         className={styles["signIn__button"]}
-        onClick={() => logInAnonymously(setShowLoading)}
+        onClick={logInAnonymously}
       >
         <User />
         Continue as guest

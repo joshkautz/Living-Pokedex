@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PokemonCard from "./pokemonCard/pokemonCard";
 import styles from "./pokemonGrid.module.scss";
 import { ReactComponent as SearchIcon } from "../../images/magnifying-glass-solid.inline.svg";
 
 const PokemonGrid = ({ pokemon, user, pokedex }) => {
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    if (!user) setSearchQuery("");
+  }, [user]);
+
   return (
     <div className={styles["pokemonGrid"]}>
       <label htmlFor="search" className="sr-only">
@@ -13,6 +18,7 @@ const PokemonGrid = ({ pokemon, user, pokedex }) => {
       <div className={styles["pokemonGrid__search"]}>
         <SearchIcon />
         <input
+          value={searchQuery}
           type="text"
           name="search"
           placeholder="Search by Name or Number..."
