@@ -10,16 +10,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### [3. Sprites](#sprites) 🎨
 ### [4. Deployment](#deployment) 📦
 
+<br>
 
 # Development
 
-Install Node v16.x.x
-
-How to build
-```bash
-npm install
-npm start
-```
+Clone the repository. From the root of the project, run `npm install` to install packages and dependencies. As of writing, we have been using Node v.16.x.x, which is the active LTS version. To run the app in development mode, run `npm start`.
 
 ## Available Scripts
 
@@ -64,7 +59,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<!-- ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
@@ -86,7 +81,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
 
 <br>
 
@@ -114,24 +109,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 >
 >Security rules provide access control and data validation in a simple yet expressive format. To build user-based and role-based access systems that keep your users' data safe, you need to use Firebase Authentication with Cloud Firestore Security Rules.
 
+<br>
+
 # Sprites
-We get the pokemon data from here: https://github.com/msikma/pokesprite/blob/master/data/pokemon.json
+We get the most up-to-date Pokémon data and sprites from the [msikma/pokesprite](https://github.com/msikma/pokesprite) repository. The data is located at [/data/pokemon.json](https://github.com/msikma/pokesprite/blob/master/data/pokemon.json), and the sprites are located data/pokemon.json:
 
-We get the sprites from this same repo: https://github.com/msikma/pokesprite
-
-We only grab the sprites that we're gonna use, by running the script below:
+Run the following bash script to save the sprites for our Living Pokédex. *This requires [jq](https://github.com/stedolan/jq)*.
 
 ```bash
 #!/bin/bash
 INDEX=1
-for POKEMON in $(cat /mnt/c/Users/Josh/Projects/pokesprite/data/pokemon.json | jq -r 'to_entries[] | "\(.value | .slug.eng) \n "')
+for POKEMON in $(cat $PWD/pokesprite/data/pokemon.json | jq -r 'to_entries[] | "\(.value | .slug.eng) \n "')
 do
     if [ "$INDEX" -gt "898" ]
     then
         exit 0
     else
         echo $POKEMON
-        cp /mnt/c/Users/Josh/Projects/pokesprite/pokemon-gen8/regular/$POKEMON.png /mnt/c/Users/Josh/Projects/Living-Pokedex-Create-React-App/public/sprites/
+        cp $PWD/pokesprite/pokemon-gen8/regular/$POKEMON.png /$PWD/Living-Pokedex-Create-React-App/public/sprites/
         ((INDEX++))
     fi
 done
