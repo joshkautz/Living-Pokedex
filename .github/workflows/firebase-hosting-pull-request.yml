@@ -6,6 +6,7 @@
 # "Adding restrictions to API keys" Google Document: https://cloud.google.com/api-keys/docs/add-restrictions-api-keys
 
 name: Deploy to Firebase Hosting Preview Channel
+
 on: pull_request
 
 permissions:
