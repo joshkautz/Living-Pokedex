@@ -6,10 +6,14 @@
 # "Adding restrictions to API keys" Google Document: https://cloud.google.com/api-keys/docs/add-restrictions-api-keys
 
 name: Deploy to Firebase Hosting Preview Channel
-"on": pull_request
+on: pull_request
+
+permissions:
+  pull-requests: write
+
 jobs:
   build_and_preview:
-    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out Repository
@@ -21,8 +25,8 @@ jobs:
       - name: Deploy to Firebase Hosting Preview Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
           projectId: living-pokedex-de070
 
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
