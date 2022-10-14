@@ -5,10 +5,11 @@
 # https://github.com/marketplace/actions/deploy-to-firebase-hosting
 
 name: Deploy to Firebase Hosting Live Channel
-"on":
+on:
   push:
     branches:
       - main
+      
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -22,7 +23,7 @@ jobs:
       - name: Deploy to Firebase Hosting Live Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
           channelId: live
           projectId: living-pokedex-de070
