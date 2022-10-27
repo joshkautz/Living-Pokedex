@@ -30,12 +30,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
           projectId: living-pokedex-de070
 
-  add_firebase_hosting_preview_channel_url_to_api_key_restrictions:
-    name: Add Firebase Hosting Preview Channel URL to API Key restrictions
-    needs: build_and_deploy_to_firebase_hosting_preview_channel
-    if: github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
-    steps:
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
         env:
           API_KEY_SERVICE_ACCOUNT: ${{ secrets.API_KEY_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
@@ -49,6 +43,9 @@ jobs:
           # Add default referrers.
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
+
+          ls
+          pwd
 
           # Add preview channels.
           test=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN")
