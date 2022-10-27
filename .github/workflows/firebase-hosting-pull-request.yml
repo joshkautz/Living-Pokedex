@@ -14,7 +14,7 @@ permissions: write-all
 jobs:
   build_and_deploy_to_firebase_hosting_preview_channel:
     name: Build and Deploy to Firebase Hosting Preview Channel
-    if: github.event.pull_request.head.repo.name == github.repository
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Check out Repository
@@ -33,7 +33,7 @@ jobs:
   add_firebase_hosting_preview_channel_url_to_api_key_restrictions:
     name: Add Firebase Hosting Preview Channel URL to API Key restrictions
     needs: build_and_deploy_to_firebase_hosting_preview_channel
-    if: github.event.pull_request.head.repo.name == github.repository
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
