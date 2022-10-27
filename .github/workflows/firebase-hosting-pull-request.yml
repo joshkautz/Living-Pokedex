@@ -51,6 +51,9 @@ jobs:
           echo $allowedReferrers
 
           # Add preview channels.
+          test=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN")
+          echo $test
+          echo "$FIREBASE_TOKEN"
           validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
           validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
 
