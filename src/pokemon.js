@@ -29100,8 +29100,8 @@ const data = {
       },
     },
   },
-  1906: {
-    idx: "1906",
+  906: {
+    idx: "906",
     name: {
       eng: "Sprigatito",
     },
@@ -29109,8 +29109,8 @@ const data = {
       eng: "sprigatito",
     },
   },
-  1907: {
-    idx: "1907",
+  907: {
+    idx: "907",
     name: {
       eng: "Floragato",
     },
@@ -29118,13 +29118,40 @@ const data = {
       eng: "floragato",
     },
   },
-  1908: {
-    idx: "1908",
+  908: {
+    idx: "908",
     name: {
       eng: "Meowscarada",
     },
     slug: {
       eng: "meowscarada",
+    },
+  },
+  909: {
+    idx: "909",
+    name: {
+      eng: "Fuecoco",
+    },
+    slug: {
+      eng: "fuecoco",
+    },
+  },
+  910: {
+    idx: "910",
+    name: {
+      eng: "Crocalor",
+    },
+    slug: {
+      eng: "crocalor",
+    },
+  },
+  911: {
+    idx: "911",
+    name: {
+      eng: "Skeledirge",
+    },
+    slug: {
+      eng: "skeledirge",
     },
   },
 };
