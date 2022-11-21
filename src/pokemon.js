@@ -29100,6 +29100,33 @@ const data = {
       },
     },
   },
+  1906: {
+    idx: "1906",
+    name: {
+      eng: "Sprigatito",
+    },
+    slug: {
+      eng: "sprigatito",
+    },
+  },
+  1907: {
+    idx: "1907",
+    name: {
+      eng: "Floragato",
+    },
+    slug: {
+      eng: "floragato",
+    },
+  },
+  1908: {
+    idx: "1908",
+    name: {
+      eng: "Meowscarada",
+    },
+    slug: {
+      eng: "meowscarada",
+    },
+  },
 };
 
 var pokemon = [];
@@ -29109,7 +29136,5 @@ for (var key in data) {
 }
 
 pokemon.sort((a, b) => (parseInt(a.idx) > parseInt(b.idx) ? 1 : -1));
-
-pokemon = pokemon.slice(0, 905);
 
 export { pokemon };
