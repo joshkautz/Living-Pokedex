@@ -29322,7 +29322,7 @@ const data = {
       eng: "Wugtrio",
     },
     slug: {
-      eng: "Wugtrio",
+      eng: "wugtrio",
     },
   },
   931: {
@@ -29408,6 +29408,546 @@ const data = {
   },
   940: {
     idx: "940",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  941: {
+    idx: "941",
+    name: {
+      eng: "Bellibolt",
+    },
+    slug: {
+      eng: "bellibolt",
+    },
+  },
+  942: {
+    idx: "942",
+    name: {
+      eng: "Varoom",
+    },
+    slug: {
+      eng: "varoom",
+    },
+  },
+  943: {
+    idx: "943",
+    name: {
+      eng: "Revavroom",
+    },
+    slug: {
+      eng: "revavroom",
+    },
+  },
+  944: {
+    idx: "944",
+    name: {
+      eng: "Orthworm",
+    },
+    slug: {
+      eng: "orthworm",
+    },
+  },
+  945: {
+    idx: "945",
+    name: {
+      eng: "Tandemaus",
+    },
+    slug: {
+      eng: "tandemaus",
+    },
+  },
+  946: {
+    idx: "946",
+    name: {
+      eng: "Maushold",
+    },
+    slug: {
+      eng: "maushold",
+    },
+  },
+  947: {
+    idx: "947",
+    name: {
+      eng: "Cetoddle",
+    },
+    slug: {
+      eng: "cetoddle",
+    },
+  },
+  948: {
+    idx: "948",
+    name: {
+      eng: "Cetitan",
+    },
+    slug: {
+      eng: "cetitan",
+    },
+  },
+  949: {
+    idx: "949",
+    name: {
+      eng: "Frigibax",
+    },
+    slug: {
+      eng: "frigibax",
+    },
+  },
+  950: {
+    idx: "950",
+    name: {
+      eng: "Arctibax",
+    },
+    slug: {
+      eng: "arctibax",
+    },
+  },
+  951: {
+    idx: "951",
+    name: {
+      eng: "Baxcalibur",
+    },
+    slug: {
+      eng: "baxcalibur",
+    },
+  },
+  952: {
+    idx: "952",
+    name: {
+      eng: "Tatsugiri",
+    },
+    slug: {
+      eng: "tatsugiri",
+    },
+  },
+  953: {
+    idx: "953",
+    name: {
+      eng: "Cyclizar",
+    },
+    slug: {
+      eng: "cyclizar",
+    },
+  },
+  954: {
+    idx: "954",
+    name: {
+      eng: "Pawmi",
+    },
+    slug: {
+      eng: "pawmi",
+    },
+  },
+  955: {
+    idx: "955",
+    name: {
+      eng: "Pawmo",
+    },
+    slug: {
+      eng: "pawmo",
+    },
+  },
+  956: {
+    idx: "956",
+    name: {
+      eng: "Pawmot",
+    },
+    slug: {
+      eng: "pawmot",
+    },
+  },
+  957: {
+    idx: "957",
+    name: {
+      eng: "Wattrel",
+    },
+    slug: {
+      eng: "wattrel",
+    },
+  },
+  958: {
+    idx: "958",
+    name: {
+      eng: "Kilowattrel",
+    },
+    slug: {
+      eng: "kilowattrel",
+    },
+  },
+  959: {
+    idx: "959",
+    name: {
+      eng: "Bombirdier",
+    },
+    slug: {
+      eng: "bombirdier",
+    },
+  },
+  960: {
+    idx: "960",
+    name: {
+      eng: "Squawkabilly",
+    },
+    slug: {
+      eng: "squawkabilly",
+    },
+  },
+  961: {
+    idx: "961",
+    name: {
+      eng: "Flamigo",
+    },
+    slug: {
+      eng: "flamigo",
+    },
+  },
+  962: {
+    idx: "962",
+    name: {
+      eng: "Klawf",
+    },
+    slug: {
+      eng: "klawf",
+    },
+  },
+  963: {
+    idx: "963",
+    name: {
+      eng: "Nacli",
+    },
+    slug: {
+      eng: "nacli",
+    },
+  },
+  964: {
+    idx: "964",
+    name: {
+      eng: "Naclstack",
+    },
+    slug: {
+      eng: "naclstack",
+    },
+  },
+  965: {
+    idx: "965",
+    name: {
+      eng: "Garganacl",
+    },
+    slug: {
+      eng: "garganacl",
+    },
+  },
+  966: {
+    idx: "966",
+    name: {
+      eng: "Glimmet",
+    },
+    slug: {
+      eng: "glimmet",
+    },
+  },
+  967: {
+    idx: "967",
+    name: {
+      eng: "Glimmora",
+    },
+    slug: {
+      eng: "glimmora",
+    },
+  },
+  968: {
+    idx: "968",
+    name: {
+      eng: "Shroodle",
+    },
+    slug: {
+      eng: "shroodle",
+    },
+  },
+  969: {
+    idx: "969",
+    name: {
+      eng: "Grafaiai",
+    },
+    slug: {
+      eng: "grafaiai",
+    },
+  },
+  970: {
+    idx: "970",
+    name: {
+      eng: "Fidough",
+    },
+    slug: {
+      eng: "fidough",
+    },
+  },
+  971: {
+    idx: "971",
+    name: {
+      eng: "Dachsbun",
+    },
+    slug: {
+      eng: "dachsbun",
+    },
+  },
+  972: {
+    idx: "972",
+    name: {
+      eng: "Maschiff",
+    },
+    slug: {
+      eng: "maschiff",
+    },
+  },
+  973: {
+    idx: "973",
+    name: {
+      eng: "Mabosstiff",
+    },
+    slug: {
+      eng: "mabosstiff",
+    },
+  },
+  974: {
+    idx: "974",
+    name: {
+      eng: "Bramblin",
+    },
+    slug: {
+      eng: "bramblin",
+    },
+  },
+  975: {
+    idx: "975",
+    name: {
+      eng: "Brambleghast",
+    },
+    slug: {
+      eng: "brambleghast",
+    },
+  },
+  976: {
+    idx: "976",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  977: {
+    idx: "977",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  978: {
+    idx: "978",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  979: {
+    idx: "979",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  980: {
+    idx: "980",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  981: {
+    idx: "981",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  982: {
+    idx: "982",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  983: {
+    idx: "983",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  984: {
+    idx: "984",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  985: {
+    idx: "985",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  986: {
+    idx: "986",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  987: {
+    idx: "987",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  988: {
+    idx: "988",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  989: {
+    idx: "989",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  990: {
+    idx: "990",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  991: {
+    idx: "991",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  992: {
+    idx: "992",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  993: {
+    idx: "993",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  994: {
+    idx: "994",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  995: {
+    idx: "995",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  996: {
+    idx: "996",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  997: {
+    idx: "997",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  9498: {
+    idx: "998",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  999: {
+    idx: "999",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  1000: {
+    idx: "1000",
     name: {
       eng: "Tadbulb",
     },
