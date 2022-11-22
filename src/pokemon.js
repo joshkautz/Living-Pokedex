@@ -29733,226 +29733,316 @@ const data = {
   976: {
     idx: "976",
     name: {
-      eng: "Tadbulb",
+      eng: "Gimmighoul",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "gimmighoul",
     },
   },
   977: {
     idx: "977",
     name: {
-      eng: "Tadbulb",
+      eng: "Gholdengo",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "gholdengo",
     },
   },
   978: {
     idx: "978",
     name: {
-      eng: "Tadbulb",
+      eng: "Great Tusk",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "greattusk",
     },
   },
   979: {
     idx: "979",
     name: {
-      eng: "Tadbulb",
+      eng: "Brute Bonnet",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "brutebonnet",
     },
   },
   980: {
     idx: "980",
     name: {
-      eng: "Tadbulb",
+      eng: "???",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "???",
     },
   },
   981: {
     idx: "981",
     name: {
-      eng: "Tadbulb",
+      eng: "Sandy Shocks",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "sandyshocks",
     },
   },
   982: {
     idx: "982",
     name: {
-      eng: "Tadbulb",
+      eng: "Scream Tail",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "screamtail",
     },
   },
   983: {
     idx: "983",
     name: {
-      eng: "Tadbulb",
+      eng: "Flutter Mane",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "fluttermane",
     },
   },
   984: {
     idx: "984",
     name: {
-      eng: "Tadbulb",
+      eng: "Slither Wing",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "slitherwing",
     },
   },
   985: {
     idx: "985",
     name: {
-      eng: "Tadbulb",
+      eng: "Roaring Moon",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "roaringmoon",
     },
   },
   986: {
     idx: "986",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Treads",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "irontreads",
     },
   },
   987: {
     idx: "987",
     name: {
-      eng: "Tadbulb",
+      eng: "???",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "???",
     },
   },
   988: {
     idx: "988",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Moth",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ironmoth",
     },
   },
   989: {
     idx: "989",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Hands",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ironhands",
     },
   },
   990: {
     idx: "990",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Jugulis",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ironjugulis",
     },
   },
   991: {
     idx: "991",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Thorns",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ironthorns",
     },
   },
   992: {
     idx: "992",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Bundle",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ironbundle",
     },
   },
   993: {
     idx: "993",
     name: {
-      eng: "Tadbulb",
+      eng: "Iron Valiant",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ironvaliant",
     },
   },
   994: {
     idx: "994",
     name: {
-      eng: "Tadbulb",
+      eng: "Ting-Lu",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "ting-lu",
     },
   },
   995: {
     idx: "995",
     name: {
-      eng: "Tadbulb",
+      eng: "Chien-Pao",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "chien-pao",
     },
   },
   996: {
     idx: "996",
     name: {
-      eng: "Tadbulb",
+      eng: "Wo-Chien",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "wo-chien",
     },
   },
   997: {
     idx: "997",
     name: {
-      eng: "Tadbulb",
+      eng: "Chi-Yu",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "chi-yu",
     },
   },
-  9498: {
+  998: {
     idx: "998",
     name: {
-      eng: "Tadbulb",
+      eng: "Koraidon",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "koraidon",
     },
   },
   999: {
     idx: "999",
     name: {
-      eng: "Tadbulb",
+      eng: "Miraidon",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "miraidon",
     },
   },
   1000: {
     idx: "1000",
     name: {
-      eng: "Tadbulb",
+      eng: "Tinkatink",
     },
     slug: {
-      eng: "tadbulb",
+      eng: "tinkatink",
+    },
+  },
+  1001: {
+    idx: "1001",
+    name: {
+      eng: "Tinkatuff",
+    },
+    slug: {
+      eng: "tinkatuff",
+    },
+  },
+  1002: {
+    idx: "1002",
+    name: {
+      eng: "Tinkaton",
+    },
+    slug: {
+      eng: "tinkaton",
+    },
+  },
+  1003: {
+    idx: "1003",
+    name: {
+      eng: "Charcadet",
+    },
+    slug: {
+      eng: "charcadet",
+    },
+  },
+  1004: {
+    idx: "1004",
+    name: {
+      eng: "Armarouge",
+    },
+    slug: {
+      eng: "armarouge",
+    },
+  },
+  1005: {
+    idx: "1005",
+    name: {
+      eng: "Ceruledge",
+    },
+    slug: {
+      eng: "ceruledge",
+    },
+  },
+  1006: {
+    idx: "1006",
+    name: {
+      eng: "Toedscool",
+    },
+    slug: {
+      eng: "toedscool",
+    },
+  },
+  1007: {
+    idx: "1007",
+    name: {
+      eng: "Toedscruel",
+    },
+    slug: {
+      eng: "toedscruel",
+    },
+  },
+  1008: {
+    idx: "1008",
+    name: {
+      eng: "Kingambit",
+    },
+    slug: {
+      eng: "kingambit",
+    },
+  },
+  1009: {
+    idx: "1009",
+    name: {
+      eng: "Clodsire",
+    },
+    slug: {
+      eng: "dlodsire",
+    },
+  },
+  1010: {
+    idx: "1010",
+    name: {
+      eng: "Annihilape",
+    },
+    slug: {
+      eng: "annihilape",
     },
   }
 };
