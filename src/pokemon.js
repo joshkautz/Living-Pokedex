@@ -30033,7 +30033,7 @@ const data = {
       eng: "Clodsire",
     },
     slug: {
-      eng: "dlodsire",
+      eng: "clodsire",
     },
   },
   1010: {
