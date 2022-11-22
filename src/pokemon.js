@@ -29772,7 +29772,7 @@ const data = {
       eng: "???",
     },
     slug: {
-      eng: "???",
+      eng: "unknown",
     },
   },
   981: {
@@ -29835,7 +29835,7 @@ const data = {
       eng: "???",
     },
     slug: {
-      eng: "???",
+      eng: "unknown",
     },
   },
   988: {
