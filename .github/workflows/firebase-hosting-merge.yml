@@ -5,25 +5,29 @@
 # https://github.com/marketplace/actions/deploy-to-firebase-hosting
 
 name: Deploy to Firebase Hosting Live Channel
+
 on:
   push:
-    branches:
-      - main
-      
+    branches: ["main"]
+
 jobs:
-  build_and_deploy:
+  job:
+    name: Checkout and Build and Deploy to Firebase Hosting Live Channel
     runs-on: ubuntu-latest
     steps:
-      - name: Check out Repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Build Project
         run: npm ci && npm run build
 
       - name: Deploy to Firebase Hosting Live Channel
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
-          channelId: live
-          projectId: living-pokedex-de070
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
+        run: |
+          # Install Firebase Tools
+          curl -sL https://firebase.tools | bash
+          echo "$GCP_SA_KEY" > /opt/gcp_key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
+          # Deploy to Firebase Functions
+          firebase deploy --only hosting
