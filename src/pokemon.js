@@ -29202,23 +29202,14 @@ const data = {
   917: {
     idx: "917",
     name: {
-      eng: "Dudunsparce",
-    },
-    slug: {
-      eng: "dudunsparce",
-    },
-  },
-  918: {
-    idx: "918",
-    name: {
       eng: "Tarountula",
     },
     slug: {
       eng: "tarountula",
     },
   },
-  919: {
-    idx: "919",
+  918: {
+    idx: "918",
     name: {
       eng: "Spidops",
     },
@@ -29226,8 +29217,8 @@ const data = {
       eng: "spidops",
     },
   },
-  920: {
-    idx: "920",
+  919: {
+    idx: "919",
     name: {
       eng: "Nymble",
     },
@@ -29235,8 +29226,8 @@ const data = {
       eng: "nymble",
     },
   },
-  921: {
-    idx: "921",
+  920: {
+    idx: "920",
     name: {
       eng: "Lokix",
     },
@@ -29244,296 +29235,8 @@ const data = {
       eng: "lokix",
     },
   },
-  922: {
-    idx: "922",
-    name: {
-      eng: "Rellor",
-    },
-    slug: {
-      eng: "rellor",
-    },
-  },
-  923: {
-    idx: "923",
-    name: {
-      eng: "Rabsca",
-    },
-    slug: {
-      eng: "rabsca",
-    },
-  },
-  924: {
-    idx: "924",
-    name: {
-      eng: "Greavard",
-    },
-    slug: {
-      eng: "greavard",
-    },
-  },
-  925: {
-    idx: "925",
-    name: {
-      eng: "Houndstone",
-    },
-    slug: {
-      eng: "houndstone",
-    },
-  },
-  926: {
-    idx: "926",
-    name: {
-      eng: "Flittle",
-    },
-    slug: {
-      eng: "flittle",
-    },
-  },
-  927: {
-    idx: "927",
-    name: {
-      eng: "Espathra",
-    },
-    slug: {
-      eng: "espathra",
-    },
-  },
-  928: {
-    idx: "928",
-    name: {
-      eng: "Farigiraf",
-    },
-    slug: {
-      eng: "farigiraf",
-    },
-  },
-  929: {
-    idx: "929",
-    name: {
-      eng: "Wiglett",
-    },
-    slug: {
-      eng: "wiglett",
-    },
-  },
-  930: {
-    idx: "930",
-    name: {
-      eng: "Wugtrio",
-    },
-    slug: {
-      eng: "wugtrio",
-    },
-  },
-  931: {
-    idx: "931",
-    name: {
-      eng: "Dondozo",
-    },
-    slug: {
-      eng: "dondozo",
-    },
-  },
-  932: {
-    idx: "932",
-    name: {
-      eng: "Veluza",
-    },
-    slug: {
-      eng: "veluza",
-    },
-  },
-  933: {
-    idx: "933",
-    name: {
-      eng: "Finizen",
-    },
-    slug: {
-      eng: "finizen",
-    },
-  },
-  934: {
-    idx: "934",
-    name: {
-      eng: "Palafin",
-    },
-    slug: {
-      eng: "palafin",
-    },
-  },
-  935: {
-    idx: "935",
-    name: {
-      eng: "Smoliv",
-    },
-    slug: {
-      eng: "smoliv",
-    },
-  },
-  936: {
-    idx: "936",
-    name: {
-      eng: "Dolliv",
-    },
-    slug: {
-      eng: "dolliv",
-    },
-  },
-  937: {
-    idx: "937",
-    name: {
-      eng: "Arboliva",
-    },
-    slug: {
-      eng: "arboliva",
-    },
-  },
-  938: {
-    idx: "938",
-    name: {
-      eng: "Capsakid",
-    },
-    slug: {
-      eng: "capsakid",
-    },
-  },
-  939: {
-    idx: "939",
-    name: {
-      eng: "Scovillain",
-    },
-    slug: {
-      eng: "scovillain",
-    },
-  },
-  940: {
-    idx: "940",
-    name: {
-      eng: "Tadbulb",
-    },
-    slug: {
-      eng: "tadbulb",
-    },
-  },
-  941: {
-    idx: "941",
-    name: {
-      eng: "Bellibolt",
-    },
-    slug: {
-      eng: "bellibolt",
-    },
-  },
-  942: {
-    idx: "942",
-    name: {
-      eng: "Varoom",
-    },
-    slug: {
-      eng: "varoom",
-    },
-  },
-  943: {
-    idx: "943",
-    name: {
-      eng: "Revavroom",
-    },
-    slug: {
-      eng: "revavroom",
-    },
-  },
-  944: {
-    idx: "944",
-    name: {
-      eng: "Orthworm",
-    },
-    slug: {
-      eng: "orthworm",
-    },
-  },
-  945: {
-    idx: "945",
-    name: {
-      eng: "Tandemaus",
-    },
-    slug: {
-      eng: "tandemaus",
-    },
-  },
-  946: {
-    idx: "946",
-    name: {
-      eng: "Maushold",
-    },
-    slug: {
-      eng: "maushold",
-    },
-  },
-  947: {
-    idx: "947",
-    name: {
-      eng: "Cetoddle",
-    },
-    slug: {
-      eng: "cetoddle",
-    },
-  },
-  948: {
-    idx: "948",
-    name: {
-      eng: "Cetitan",
-    },
-    slug: {
-      eng: "cetitan",
-    },
-  },
-  949: {
-    idx: "949",
-    name: {
-      eng: "Frigibax",
-    },
-    slug: {
-      eng: "frigibax",
-    },
-  },
-  950: {
-    idx: "950",
-    name: {
-      eng: "Arctibax",
-    },
-    slug: {
-      eng: "arctibax",
-    },
-  },
-  951: {
-    idx: "951",
-    name: {
-      eng: "Baxcalibur",
-    },
-    slug: {
-      eng: "baxcalibur",
-    },
-  },
-  952: {
-    idx: "952",
-    name: {
-      eng: "Tatsugiri",
-    },
-    slug: {
-      eng: "tatsugiri",
-    },
-  },
-  953: {
-    idx: "953",
-    name: {
-      eng: "Cyclizar",
-    },
-    slug: {
-      eng: "cyclizar",
-    },
-  },
-  954: {
-    idx: "954",
+  921: {
+    idx: "921",
     name: {
       eng: "Pawmi",
     },
@@ -29541,8 +29244,8 @@ const data = {
       eng: "pawmi",
     },
   },
-  955: {
-    idx: "955",
+  922: {
+    idx: "922",
     name: {
       eng: "Pawmo",
     },
@@ -29550,8 +29253,8 @@ const data = {
       eng: "pawmo",
     },
   },
-  956: {
-    idx: "956",
+  923: {
+    idx: "923",
     name: {
       eng: "Pawmot",
     },
@@ -29559,125 +29262,26 @@ const data = {
       eng: "pawmot",
     },
   },
-  957: {
-    idx: "957",
+  924: {
+    idx: "924",
     name: {
-      eng: "Wattrel",
+      eng: "Tandemaus",
     },
     slug: {
-      eng: "wattrel",
+      eng: "tandemaus",
     },
   },
-  958: {
-    idx: "958",
+  925: {
+    idx: "925",
     name: {
-      eng: "Kilowattrel",
+      eng: "Maushold",
     },
     slug: {
-      eng: "kilowattrel",
+      eng: "maushold",
     },
   },
-  959: {
-    idx: "959",
-    name: {
-      eng: "Bombirdier",
-    },
-    slug: {
-      eng: "bombirdier",
-    },
-  },
-  960: {
-    idx: "960",
-    name: {
-      eng: "Squawkabilly",
-    },
-    slug: {
-      eng: "squawkabilly",
-    },
-  },
-  961: {
-    idx: "961",
-    name: {
-      eng: "Flamigo",
-    },
-    slug: {
-      eng: "flamigo",
-    },
-  },
-  962: {
-    idx: "962",
-    name: {
-      eng: "Klawf",
-    },
-    slug: {
-      eng: "klawf",
-    },
-  },
-  963: {
-    idx: "963",
-    name: {
-      eng: "Nacli",
-    },
-    slug: {
-      eng: "nacli",
-    },
-  },
-  964: {
-    idx: "964",
-    name: {
-      eng: "Naclstack",
-    },
-    slug: {
-      eng: "naclstack",
-    },
-  },
-  965: {
-    idx: "965",
-    name: {
-      eng: "Garganacl",
-    },
-    slug: {
-      eng: "garganacl",
-    },
-  },
-  966: {
-    idx: "966",
-    name: {
-      eng: "Glimmet",
-    },
-    slug: {
-      eng: "glimmet",
-    },
-  },
-  967: {
-    idx: "967",
-    name: {
-      eng: "Glimmora",
-    },
-    slug: {
-      eng: "glimmora",
-    },
-  },
-  968: {
-    idx: "968",
-    name: {
-      eng: "Shroodle",
-    },
-    slug: {
-      eng: "shroodle",
-    },
-  },
-  969: {
-    idx: "969",
-    name: {
-      eng: "Grafaiai",
-    },
-    slug: {
-      eng: "grafaiai",
-    },
-  },
-  970: {
-    idx: "970",
+  926: {
+    idx: "926",
     name: {
       eng: "Fidough",
     },
@@ -29685,8 +29289,8 @@ const data = {
       eng: "fidough",
     },
   },
-  971: {
-    idx: "971",
+  927: {
+    idx: "927",
     name: {
       eng: "Dachsbun",
     },
@@ -29694,287 +29298,71 @@ const data = {
       eng: "dachsbun",
     },
   },
-  972: {
-    idx: "972",
+  928: {
+    idx: "928",
     name: {
-      eng: "Maschiff",
+      eng: "Smoliv",
     },
     slug: {
-      eng: "maschiff",
+      eng: "smoliv",
     },
   },
-  973: {
-    idx: "973",
+  929: {
+    idx: "929",
     name: {
-      eng: "Mabosstiff",
+      eng: "Dolliv",
     },
     slug: {
-      eng: "mabosstiff",
+      eng: "dolliv",
     },
   },
-  974: {
-    idx: "974",
+  930: {
+    idx: "930",
     name: {
-      eng: "Bramblin",
+      eng: "Arboliva",
     },
     slug: {
-      eng: "bramblin",
+      eng: "arboliva",
     },
   },
-  975: {
-    idx: "975",
+  931: {
+    idx: "931",
     name: {
-      eng: "Brambleghast",
+      eng: "Squawkabilly",
     },
     slug: {
-      eng: "brambleghast",
+      eng: "squawkabilly",
     },
   },
-  976: {
-    idx: "976",
+  932: {
+    idx: "932",
     name: {
-      eng: "Gimmighoul",
+      eng: "Nacli",
     },
     slug: {
-      eng: "gimmighoul",
+      eng: "nacli",
     },
   },
-  977: {
-    idx: "977",
+  933: {
+    idx: "933",
     name: {
-      eng: "Gholdengo",
+      eng: "Naclstack",
     },
     slug: {
-      eng: "gholdengo",
+      eng: "naclstack",
     },
   },
-  978: {
-    idx: "978",
+  934: {
+    idx: "934",
     name: {
-      eng: "Great Tusk",
+      eng: "Garganacl",
     },
     slug: {
-      eng: "greattusk",
+      eng: "garganacl",
     },
   },
-  979: {
-    idx: "979",
-    name: {
-      eng: "Brute Bonnet",
-    },
-    slug: {
-      eng: "brutebonnet",
-    },
-  },
-  980: {
-    idx: "980",
-    name: {
-      eng: "???",
-    },
-    slug: {
-      eng: "unknown",
-    },
-  },
-  981: {
-    idx: "981",
-    name: {
-      eng: "Sandy Shocks",
-    },
-    slug: {
-      eng: "sandyshocks",
-    },
-  },
-  982: {
-    idx: "982",
-    name: {
-      eng: "Scream Tail",
-    },
-    slug: {
-      eng: "screamtail",
-    },
-  },
-  983: {
-    idx: "983",
-    name: {
-      eng: "Flutter Mane",
-    },
-    slug: {
-      eng: "fluttermane",
-    },
-  },
-  984: {
-    idx: "984",
-    name: {
-      eng: "Slither Wing",
-    },
-    slug: {
-      eng: "slitherwing",
-    },
-  },
-  985: {
-    idx: "985",
-    name: {
-      eng: "Roaring Moon",
-    },
-    slug: {
-      eng: "roaringmoon",
-    },
-  },
-  986: {
-    idx: "986",
-    name: {
-      eng: "Iron Treads",
-    },
-    slug: {
-      eng: "irontreads",
-    },
-  },
-  987: {
-    idx: "987",
-    name: {
-      eng: "???",
-    },
-    slug: {
-      eng: "unknown",
-    },
-  },
-  988: {
-    idx: "988",
-    name: {
-      eng: "Iron Moth",
-    },
-    slug: {
-      eng: "ironmoth",
-    },
-  },
-  989: {
-    idx: "989",
-    name: {
-      eng: "Iron Hands",
-    },
-    slug: {
-      eng: "ironhands",
-    },
-  },
-  990: {
-    idx: "990",
-    name: {
-      eng: "Iron Jugulis",
-    },
-    slug: {
-      eng: "ironjugulis",
-    },
-  },
-  991: {
-    idx: "991",
-    name: {
-      eng: "Iron Thorns",
-    },
-    slug: {
-      eng: "ironthorns",
-    },
-  },
-  992: {
-    idx: "992",
-    name: {
-      eng: "Iron Bundle",
-    },
-    slug: {
-      eng: "ironbundle",
-    },
-  },
-  993: {
-    idx: "993",
-    name: {
-      eng: "Iron Valiant",
-    },
-    slug: {
-      eng: "ironvaliant",
-    },
-  },
-  994: {
-    idx: "994",
-    name: {
-      eng: "Ting-Lu",
-    },
-    slug: {
-      eng: "ting-lu",
-    },
-  },
-  995: {
-    idx: "995",
-    name: {
-      eng: "Chien-Pao",
-    },
-    slug: {
-      eng: "chien-pao",
-    },
-  },
-  996: {
-    idx: "996",
-    name: {
-      eng: "Wo-Chien",
-    },
-    slug: {
-      eng: "wo-chien",
-    },
-  },
-  997: {
-    idx: "997",
-    name: {
-      eng: "Chi-Yu",
-    },
-    slug: {
-      eng: "chi-yu",
-    },
-  },
-  998: {
-    idx: "998",
-    name: {
-      eng: "Koraidon",
-    },
-    slug: {
-      eng: "koraidon",
-    },
-  },
-  999: {
-    idx: "999",
-    name: {
-      eng: "Miraidon",
-    },
-    slug: {
-      eng: "miraidon",
-    },
-  },
-  1000: {
-    idx: "1000",
-    name: {
-      eng: "Tinkatink",
-    },
-    slug: {
-      eng: "tinkatink",
-    },
-  },
-  1001: {
-    idx: "1001",
-    name: {
-      eng: "Tinkatuff",
-    },
-    slug: {
-      eng: "tinkatuff",
-    },
-  },
-  1002: {
-    idx: "1002",
-    name: {
-      eng: "Tinkaton",
-    },
-    slug: {
-      eng: "tinkaton",
-    },
-  },
-  1003: {
-    idx: "1003",
+  935: {
+    idx: "935",
     name: {
       eng: "Charcadet",
     },
@@ -29982,8 +29370,8 @@ const data = {
       eng: "charcadet",
     },
   },
-  1004: {
-    idx: "1004",
+  936: {
+    idx: "936",
     name: {
       eng: "Armarouge",
     },
@@ -29991,8 +29379,8 @@ const data = {
       eng: "armarouge",
     },
   },
-  1005: {
-    idx: "1005",
+  937: {
+    idx: "937",
     name: {
       eng: "Ceruledge",
     },
@@ -30000,8 +29388,98 @@ const data = {
       eng: "ceruledge",
     },
   },
-  1006: {
-    idx: "1006",
+  938: {
+    idx: "938",
+    name: {
+      eng: "Tadbulb",
+    },
+    slug: {
+      eng: "tadbulb",
+    },
+  },
+  939: {
+    idx: "939",
+    name: {
+      eng: "Bellibolt",
+    },
+    slug: {
+      eng: "bellibolt",
+    },
+  },
+  940: {
+    idx: "940",
+    name: {
+      eng: "Wattrel",
+    },
+    slug: {
+      eng: "wattrel",
+    },
+  },
+  941: {
+    idx: "941",
+    name: {
+      eng: "Kilowattrel",
+    },
+    slug: {
+      eng: "kilowattrel",
+    },
+  },
+  942: {
+    idx: "942",
+    name: {
+      eng: "Maschiff",
+    },
+    slug: {
+      eng: "maschiff",
+    },
+  },
+  943: {
+    idx: "943",
+    name: {
+      eng: "Mabosstiff",
+    },
+    slug: {
+      eng: "mabosstiff",
+    },
+  },
+  944: {
+    idx: "944",
+    name: {
+      eng: "Shroodle",
+    },
+    slug: {
+      eng: "shroodle",
+    },
+  },
+  945: {
+    idx: "945",
+    name: {
+      eng: "Grafaiai",
+    },
+    slug: {
+      eng: "grafaiai",
+    },
+  },
+  946: {
+    idx: "946",
+    name: {
+      eng: "Bramblin",
+    },
+    slug: {
+      eng: "bramblin",
+    },
+  },
+  947: {
+    idx: "947",
+    name: {
+      eng: "Brambleghast",
+    },
+    slug: {
+      eng: "brambleghast",
+    },
+  },
+  948: {
+    idx: "948",
     name: {
       eng: "Toedscool",
     },
@@ -30009,8 +29487,8 @@ const data = {
       eng: "toedscool",
     },
   },
-  1007: {
-    idx: "1007",
+  949: {
+    idx: "949",
     name: {
       eng: "Toedscruel",
     },
@@ -30018,17 +29496,278 @@ const data = {
       eng: "toedscruel",
     },
   },
-  1008: {
-    idx: "1008",
+  950: {
+    idx: "950",
     name: {
-      eng: "Kingambit",
+      eng: "Klawf",
     },
     slug: {
-      eng: "kingambit",
+      eng: "klawf",
     },
   },
-  1009: {
-    idx: "1009",
+  951: {
+    idx: "951",
+    name: {
+      eng: "Capsakid",
+    },
+    slug: {
+      eng: "capsakid",
+    },
+  },
+  952: {
+    idx: "952",
+    name: {
+      eng: "Scovillain",
+    },
+    slug: {
+      eng: "scovillain",
+    },
+  },
+  953: {
+    idx: "953",
+    name: {
+      eng: "Rellor",
+    },
+    slug: {
+      eng: "rellor",
+    },
+  },
+  954: {
+    idx: "954",
+    name: {
+      eng: "Rabsca",
+    },
+    slug: {
+      eng: "rabsca",
+    },
+  },
+  955: {
+    idx: "955",
+    name: {
+      eng: "Flittle",
+    },
+    slug: {
+      eng: "flittle",
+    },
+  },
+  956: {
+    idx: "956",
+    name: {
+      eng: "Espathra",
+    },
+    slug: {
+      eng: "espathra",
+    },
+  },
+  957: {
+    idx: "957",
+    name: {
+      eng: "Tinkatink",
+    },
+    slug: {
+      eng: "tinkatink",
+    },
+  },
+  958: {
+    idx: "958",
+    name: {
+      eng: "Tinkatuff",
+    },
+    slug: {
+      eng: "tinkatuff",
+    },
+  },
+  959: {
+    idx: "959",
+    name: {
+      eng: "Tinkaton",
+    },
+    slug: {
+      eng: "tinkaton",
+    },
+  },
+  960: {
+    idx: "960",
+    name: {
+      eng: "Wiglett",
+    },
+    slug: {
+      eng: "wiglett",
+    },
+  },
+  961: {
+    idx: "961",
+    name: {
+      eng: "Wugtrio",
+    },
+    slug: {
+      eng: "wugtrio",
+    },
+  },
+  962: {
+    idx: "962",
+    name: {
+      eng: "Bombirdier",
+    },
+    slug: {
+      eng: "bombirdier",
+    },
+  },
+  963: {
+    idx: "963",
+    name: {
+      eng: "Finizen",
+    },
+    slug: {
+      eng: "finizen",
+    },
+  },
+  964: {
+    idx: "964",
+    name: {
+      eng: "Palafin",
+    },
+    slug: {
+      eng: "palafin",
+    },
+  },
+  965: {
+    idx: "965",
+    name: {
+      eng: "Varoom",
+    },
+    slug: {
+      eng: "varoom",
+    },
+  },
+  966: {
+    idx: "966",
+    name: {
+      eng: "Revavroom",
+    },
+    slug: {
+      eng: "revavroom",
+    },
+  },
+  967: {
+    idx: "967",
+    name: {
+      eng: "Cyclizar",
+    },
+    slug: {
+      eng: "cyclizar",
+    },
+  },
+  968: {
+    idx: "968",
+    name: {
+      eng: "Orthworm",
+    },
+    slug: {
+      eng: "orthworm",
+    },
+  },
+  969: {
+    idx: "969",
+    name: {
+      eng: "Glimmet",
+    },
+    slug: {
+      eng: "glimmet",
+    },
+  },
+  970: {
+    idx: "970",
+    name: {
+      eng: "Glimmora",
+    },
+    slug: {
+      eng: "glimmora",
+    },
+  },
+  971: {
+    idx: "971",
+    name: {
+      eng: "Greavard",
+    },
+    slug: {
+      eng: "greavard",
+    },
+  },
+  972: {
+    idx: "972",
+    name: {
+      eng: "Houndstone",
+    },
+    slug: {
+      eng: "houndstone",
+    },
+  },
+  973: {
+    idx: "973",
+    name: {
+      eng: "Flamigo",
+    },
+    slug: {
+      eng: "flamigo",
+    },
+  },
+  974: {
+    idx: "974",
+    name: {
+      eng: "Cetoddle",
+    },
+    slug: {
+      eng: "cetoddle",
+    },
+  },
+  975: {
+    idx: "975",
+    name: {
+      eng: "Cetitan",
+    },
+    slug: {
+      eng: "cetitan",
+    },
+  },
+  976: {
+    idx: "976",
+    name: {
+      eng: "Veluza",
+    },
+    slug: {
+      eng: "veluza",
+    },
+  },
+  977: {
+    idx: "977",
+    name: {
+      eng: "Dondozo",
+    },
+    slug: {
+      eng: "dondozo",
+    },
+  },
+  978: {
+    idx: "978",
+    name: {
+      eng: "Tatsugiri",
+    },
+    slug: {
+      eng: "tatsugiri",
+    },
+  },
+  979: {
+    idx: "979",
+    name: {
+      eng: "Annihilape",
+    },
+    slug: {
+      eng: "annihilape",
+    },
+  },
+  980: {
+    idx: "980",
     name: {
       eng: "Clodsire",
     },
@@ -30036,15 +29775,258 @@ const data = {
       eng: "clodsire",
     },
   },
-  1010: {
-    idx: "1010",
+  981: {
+    idx: "981",
     name: {
-      eng: "Annihilape",
+      eng: "Farigiraf",
     },
     slug: {
-      eng: "annihilape",
+      eng: "farigiraf",
     },
-  }
+  },
+  982: {
+    idx: "982",
+    name: {
+      eng: "Dudunsparce",
+    },
+    slug: {
+      eng: "dudunsparce",
+    },
+  },
+  983: {
+    idx: "983",
+    name: {
+      eng: "Kingambit",
+    },
+    slug: {
+      eng: "kingambit",
+    },
+  },
+  984: {
+    idx: "984",
+    name: {
+      eng: "Great Tusk",
+    },
+    slug: {
+      eng: "greattusk",
+    },
+  },
+  985: {
+    idx: "985",
+    name: {
+      eng: "Scream Tail",
+    },
+    slug: {
+      eng: "screamtail",
+    },
+  },
+  986: {
+    idx: "986",
+    name: {
+      eng: "Brute Bonnet",
+    },
+    slug: {
+      eng: "brutebonnet",
+    },
+  },
+  987: {
+    idx: "987",
+    name: {
+      eng: "Flutter Mane",
+    },
+    slug: {
+      eng: "fluttermane",
+    },
+  },
+  988: {
+    idx: "988",
+    name: {
+      eng: "Slither Wing",
+    },
+    slug: {
+      eng: "slitherwing",
+    },
+  },
+  989: {
+    idx: "989",
+    name: {
+      eng: "Sandy Shocks",
+    },
+    slug: {
+      eng: "sandyshocks",
+    },
+  },
+  990: {
+    idx: "990",
+    name: {
+      eng: "Iron Treads",
+    },
+    slug: {
+      eng: "irontreads",
+    },
+  },
+  991: {
+    idx: "991",
+    name: {
+      eng: "Iron Bundle",
+    },
+    slug: {
+      eng: "ironbundle",
+    },
+  },
+  992: {
+    idx: "992",
+    name: {
+      eng: "Iron Hands",
+    },
+    slug: {
+      eng: "ironhands",
+    },
+  },
+  993: {
+    idx: "993",
+    name: {
+      eng: "Iron Jugulis",
+    },
+    slug: {
+      eng: "ironjugulis",
+    },
+  },
+  994: {
+    idx: "994",
+    name: {
+      eng: "Iron Moth",
+    },
+    slug: {
+      eng: "ironmoth",
+    },
+  },
+  995: {
+    idx: "995",
+    name: {
+      eng: "Iron Thorns",
+    },
+    slug: {
+      eng: "ironthorns",
+    },
+  },
+  996: {
+    idx: "996",
+    name: {
+      eng: "Frigibax",
+    },
+    slug: {
+      eng: "frigibax",
+    },
+  },
+  997: {
+    idx: "997",
+    name: {
+      eng: "Arctibax",
+    },
+    slug: {
+      eng: "arctibax",
+    },
+  },
+  998: {
+    idx: "998",
+    name: {
+      eng: "Baxcalibur",
+    },
+    slug: {
+      eng: "baxcalibur",
+    },
+  },
+  999: {
+    idx: "999",
+    name: {
+      eng: "Gimmighoul",
+    },
+    slug: {
+      eng: "gimmighoul",
+    },
+  },
+  1000: {
+    idx: "1000",
+    name: {
+      eng: "Gholdengo",
+    },
+    slug: {
+      eng: "gholdengo",
+    },
+  },
+  1001: {
+    idx: "1001",
+    name: {
+      eng: "Wo-Chien",
+    },
+    slug: {
+      eng: "wo-chien",
+    },
+  },
+  1002: {
+    idx: "1002",
+    name: {
+      eng: "Chien-Pao",
+    },
+    slug: {
+      eng: "chien-pao",
+    },
+  },
+  1003: {
+    idx: "1003",
+    name: {
+      eng: "Ting-Lu",
+    },
+    slug: {
+      eng: "ting-lu",
+    },
+  },
+  1004: {
+    idx: "1004",
+    name: {
+      eng: "Chi-Yu",
+    },
+    slug: {
+      eng: "chi-yu",
+    },
+  },
+  1005: {
+    idx: "1005",
+    name: {
+      eng: "Roaring Moon",
+    },
+    slug: {
+      eng: "roaringmoon",
+    },
+  },
+  1006: {
+    idx: "1006",
+    name: {
+      eng: "Iron Valiant",
+    },
+    slug: {
+      eng: "ironvaliant",
+    },
+  },
+  1007: {
+    idx: "1007",
+    name: {
+      eng: "Koraidon",
+    },
+    slug: {
+      eng: "koraidon",
+    },
+  },
+  1008: {
+    idx: "1008",
+    name: {
+      eng: "Miraidon",
+    },
+    slug: {
+      eng: "miraidon",
+    },
+  },
 };
 
 var pokemon = [];
