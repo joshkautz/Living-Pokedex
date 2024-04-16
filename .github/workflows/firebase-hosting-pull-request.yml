@@ -23,26 +23,32 @@ jobs:
       - name: Build Project
         run: npm ci && npm run build
 
-      - name: Deploy to Firebase Hosting Preview Channel
+      - name: Deploy to Firebase Hosting Preview Channel.
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_PR: ${{ github.event.pull_request.number }}
         run: |
           # Install Firebase Tools
           curl -sL https://firebase.tools | bash
 
-          # Deploy to Firebase Hosting Preview Channel
+          # Deploy to Firebase Hosting Preview Channel.
           DATE=$(date +'%A-%m-%d-%Y-%H-%M-%S')
           CHANNEL="Preview-"$DATE
           DEPLOYMENT_OUPUT=$(firebase hosting:channel:deploy $CHANNEL --expires 3d --json --token "$FIREBASE_TOKEN")
-          PREVIEW_CHANNEL_URL=$(echo "$DEPLOYMENT_OUPUT" | grep -E -o '(http|https)://[a-zA-Z0-9./?=_%:-]*.web.app')
 
+          # Prepare Firebase Hosting Preview Channel URL for GitHub environment file.
+          PREVIEW_CHANNEL_URL=$(echo "$DEPLOYMENT_OUTPUT" | grep -E -o '(http|https)://[a-zA-Z0-9./?=_%:-]*.web.app')
+          echo "PREVIEW_CHANNEL_URL=$PREVIEW_CHANNEL_URL" >> $GITHUB_ENV
+
+      - name: Comment Firebase Hosting Preview Channel URL on GitHub Pull Request.
+        env:
+          PREVIEW_CHANNEL_URL: ${{ env.PREVIEW_CHANNEL_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PR: ${{ github.event.pull_request.number }}
+        run: |
           # Use GitHub CLI to comment the new Firebase Hosting Preview Channel URL.
           gh pr comment $GITHUB_PR --body "Here is your Preview Channel URL: $PREVIEW_CHANNEL_URL"
 
-      - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
+      - name: Add Firebase Hosting Preview Channel URL to API Key restrictions.
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
@@ -52,20 +58,11 @@ jobs:
           # Install Firebase Tools.
           curl -sL https://firebase.tools | bash
 
-          # Set up Google Cloud Service Account.
-          echo "$SERVICE_ACCOUNT" > /opt/gcp_key.json
-
           # Add default referrers.
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
 
-          firebase
-          firebase login:list
-          firebase hosting:channel:list
-
           # Add preview channels.
-          firebase login:list
-          firebase hosting:channel:list
           validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
           validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
 
@@ -96,6 +93,9 @@ jobs:
           # Install Google's OAuth Tool.
           wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
           tar -xvzf linux_amd64.tgz
+
+          # Set up Google Cloud Service Account.
+          echo "$SERVICE_ACCOUNT" > /opt/gcp_key.json
 
           # Create gcurl command.
           shopt -s expand_aliases
