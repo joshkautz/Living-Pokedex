@@ -45,17 +45,21 @@ jobs:
 
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
         env:
-          API_KEY_SERVICE_ACCOUNT: ${{ secrets.API_KEY_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GCP_SA_KEY: ${{ secrets.API_KEY_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
           PROJECT_NUMBER: 285902590177
           KEY_ID: 6003ecc6-a4eb-4405-be8c-076dd74b53d1
         run: |
+          # Install Firebase Tools.
+          curl -sL https://firebase.tools | bash
+          echo "$GCP_SA_KEY" > /opt/gcp_key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
+
           # Add default referrers.
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
 
           # Add preview channels.
-          validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
+          validChannels=$(firebase hosting:channel:list --json | jq -r '.result.channels[].url')
           validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
 
           for i in ${validChannels}
@@ -86,12 +90,9 @@ jobs:
           wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
           tar -xvzf linux_amd64.tgz
 
-          # Prepare Google Service Account credentials for gcurl.
-          echo "$API_KEY_SERVICE_ACCOUNT" >> ~/credentials.json
-
           # Create gcurl command.
           shopt -s expand_aliases
-          alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
+          alias gcurl='curl -H "$(./linux_amd64/oauth2l header --json /opt/gcp_key.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
 
           # Update Google API Key website restrictions.
           gcurl https://apikeys.googleapis.com/v2/projects/${PROJECT_NUMBER}/locations/global/keys/${KEY_ID}?updateMask=restrictions --request PATCH --data '{ "restrictions" : { "browserKeyRestrictions" : { "allowedReferrers" : [ '"$allowedReferrers"' ]}}}'
