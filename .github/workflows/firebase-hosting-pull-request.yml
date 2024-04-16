@@ -25,19 +25,18 @@ jobs:
 
       - name: Deploy to Firebase Hosting Preview Channel
         env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_PR: ${{ github.event.pull_request.number }}
         run: |
           # Install Firebase Tools
           curl -sL https://firebase.tools | bash
-          echo "$GCP_SA_KEY" > /opt/gcp_key.json
-          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
 
           # Deploy to Firebase Hosting Preview Channel
           DATE=$(date +'%A-%m-%d-%Y-%H-%M-%S')
           CHANNEL="Preview-"$DATE
-          DEPLOYMENT_OUPUT=$(firebase hosting:channel:deploy $CHANNEL --expires 3d --json)
+          DEPLOYMENT_OUPUT=$(firebase hosting:channel:deploy $CHANNEL --expires 3d --json --token "$FIREBASE_TOKEN")
           PREVIEW_CHANNEL_URL=$(echo "$DEPLOYMENT_OUPUT" | grep -E -o '(http|https)://[a-zA-Z0-9./?=_%:-]*.web.app')
 
           # Use GitHub CLI to comment the new Firebase Hosting Preview Channel URL.
@@ -45,14 +44,16 @@ jobs:
 
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions
         env:
-          GCP_SA_KEY: ${{ secrets.API_KEY_SERVICE_ACCOUNT_LIVING_POKEDEX_DE070 }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
           PROJECT_NUMBER: 285902590177
           KEY_ID: 6003ecc6-a4eb-4405-be8c-076dd74b53d1
         run: |
           # Install Firebase Tools.
           curl -sL https://firebase.tools | bash
-          echo "$GCP_SA_KEY" > /opt/gcp_key.json
-          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
+
+          # Set up Google Cloud Service Account.
+          echo "$SERVICE_ACCOUNT" > /opt/gcp_key.json
 
           # Add default referrers.
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
@@ -63,7 +64,9 @@ jobs:
           firebase hosting:channel:list
 
           # Add preview channels.
-          validChannels=$(firebase hosting:channel:list --json | jq -r '.result.channels[].url')
+          firebase login:list
+          firebase hosting:channel:list
+          validChannels=$(firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" | jq -r '.result.channels[].url')
           validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
 
           for i in ${validChannels}
