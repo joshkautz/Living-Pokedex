@@ -4,15 +4,16 @@
 # Reference
 # https://github.com/marketplace/actions/deploy-to-firebase-hosting
 
-name: Deploy to Firebase Hosting Live Channel
+name: Deploy to Production
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
-  job:
-    name: Checkout and Build and Deploy to Firebase Hosting Live Channel
+  App:
+    name: Deploy to Firebase Hosting
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -29,5 +30,6 @@ jobs:
           curl -sL https://firebase.tools | bash
           echo "$GCP_SA_KEY" > /opt/gcp_key.json
           export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
-          # Deploy to Firebase Functions
+          
+          # Deploy to Firebase Hosting
           firebase deploy --only hosting
