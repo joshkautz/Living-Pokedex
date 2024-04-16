@@ -58,6 +58,10 @@ jobs:
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
 
+          firebase
+          firebase login:list
+          firebase hosting:channel:list
+
           # Add preview channels.
           validChannels=$(firebase hosting:channel:list --json | jq -r '.result.channels[].url')
           validChannels=$(for i in ${validChannels}; do echo "$(basename $i) " ; done;)
