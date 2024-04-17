@@ -112,23 +112,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <br>
 
 # Sprites
-We get the most up-to-date Pokémon data and sprites from the [msikma/pokesprite](https://github.com/msikma/pokesprite) repository. The data is located at [/data/pokemon.json](https://github.com/msikma/pokesprite/blob/master/data/pokemon.json), and the sprites are located data/pokemon.json:
-
-Run the following bash script to save the sprites for our Living Pokédex. *This requires [jq](https://github.com/stedolan/jq)*.
+Update the `pokemon.json` list (and `pokemon.js` list) with new pokemon that are released, and then run the following bash script to save the sprites for our Living Pokédex. *This requires [jq](https://github.com/stedolan/jq)*.
 
 ```bash
-#!/bin/bash
-INDEX=1
-for POKEMON in $(cat $PWD/pokesprite/data/pokemon.json | jq -r 'to_entries[] | "\(.value | .slug.eng) \n "')
+for POKEMON in $(cat src/pokemon.json | jq -r '.[].slug')
 do
-    if [ "$INDEX" -gt "898" ]
-    then
-        exit 0
-    else
-        echo $POKEMON
-        cp $PWD/pokesprite/pokemon-gen8/regular/$POKEMON.png /$PWD/Living-Pokedex-Create-React-App/public/sprites/
-        ((INDEX++))
-    fi
+    echo $POKEMON
+    curl -o "public/sprites/$POKEMON.avif" "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/$POKEMON.avif"
 done
 ```
 

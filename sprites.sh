@@ -1,12 +1,5 @@
-INDEX=1
-for POKEMON in $(cat /mnt/c/Users/Josh/Projects/pokesprite/data/pokemon.json | jq -r 'to_entries[] | "\(.value | .slug.eng) \n "')
+for POKEMON in $(cat src/pokemon.json | jq -r '.[].slug')
 do
-    if [ "$INDEX" -gt "905" ]
-    then
-        exit 0
-    else
-        echo $POKEMON
-        cp /mnt/c/Users/Josh/Projects/pokesprite/pokemon-gen8/regular/$POKEMON.png /mnt/c/Users/Josh/Projects/Living-Pokedex-Create-React-App/public/sprites/
-        ((INDEX++))
-    fi
+    echo $POKEMON
+    curl -o "public/sprites/$POKEMON.avif" "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/$POKEMON.avif"
 done

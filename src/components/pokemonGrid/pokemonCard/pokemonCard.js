@@ -12,15 +12,15 @@ const PokemonCard = ({ pokemon, user, caught }) => {
     >
       <div className={styles["pokemonCard__img"]}>
         <img
-          height="56px"
-          width="68px"
+          height="56"
+          width="60px"
           alt=""
-          src={`./sprites/${pokemon.slug.eng}.png`}
+          src={`./sprites/${pokemon.slug}.avif`}
         />
       </div>
       <div className={styles["pokemonCard__details"]}>
         <span>#{pokemon.idx}</span>
-        <p>{pokemon.name.eng}</p>
+        <p>{pokemon.name}</p>
       </div>
     </button>
   );

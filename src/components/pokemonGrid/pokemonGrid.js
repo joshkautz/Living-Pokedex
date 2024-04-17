@@ -31,14 +31,14 @@ const PokemonGrid = ({ pokemon, user, pokedex }) => {
             (pokemon) =>
               searchQuery === "" ||
               pokemon.idx.includes(searchQuery) ||
-              pokemon.name.eng.toLowerCase().includes(searchQuery.toLowerCase())
+              pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
           )
-          .map((pokemon, index) => {
+          .map((pokemon) => {
             const caught =
               pokedex === undefined ? false : pokedex[parseInt(pokemon.idx)];
             return (
               <PokemonCard
-                key={index}
+                key={pokemon.idx}
                 pokemon={pokemon}
                 user={user}
                 caught={caught}
