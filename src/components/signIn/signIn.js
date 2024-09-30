@@ -5,10 +5,8 @@ import {
   logInAnonymously,
   logInWithGoogle,
   logInWithTwitter,
-  logInWithFacebook,
 } from "../../firebase";
 
-import { ReactComponent as Facebook } from "../../images/facebook-brands.inline.svg";
 import { ReactComponent as Twitter } from "../../images/twitter-brands.inline.svg";
 import { ReactComponent as Google } from "../../images/google-brands.inline.svg";
 import { ReactComponent as User } from "../../images/user-solid.inline.svg";
@@ -31,13 +29,6 @@ const SignIn = () => {
       >
         <Twitter />
         Sign in with Twitter
-      </button>
-      <button
-        className={styles["signIn__button"]}
-        onClick={logInWithFacebook}
-      >
-        <Facebook />
-        Sign in with Facebook
       </button>
       <br />
       <hr></hr>

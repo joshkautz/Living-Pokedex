@@ -11,7 +11,6 @@ import { isDesktop } from "react-device-detect";
 import {
   GoogleAuthProvider,
   TwitterAuthProvider,
-  FacebookAuthProvider,
   getAuth,
   signInAnonymously,
   signInWithPopup,
@@ -81,11 +80,6 @@ const logInWithTwitter = async () => {
   await signInWithProvider(new TwitterAuthProvider());
 };
 
-// Example: https://firebase.google.com/docs/auth/web/facebook-login
-const logInWithFacebook = async () => {
-  await signInWithProvider(new FacebookAuthProvider());
-};
-
 const signInWithProvider = async (provider) => {
   // On Desktop, prompt user to sign in with the provider by opening a pop-up window to the provider's sign-in page.
   // On Mobile, prompt user to sign in with the provider by redirecting to the provider's sign-in page.
@@ -123,12 +117,6 @@ const linkWithGoogle = async (setShowLoading) => {
 const linkWithTwitter = async (setShowLoading) => {
   setShowLoading(true);
   await linkWithProvider(new TwitterAuthProvider());
-  setShowLoading(false);
-};
-
-const linkWithFacebook = async (setShowLoading) => {
-  setShowLoading(true);
-  await linkWithProvider(new FacebookAuthProvider());
   setShowLoading(false);
 };
 
@@ -171,12 +159,6 @@ const unlinkWithTwitter = async (setShowLoading) => {
   setShowLoading(false);
 };
 
-const unlinkWithFacebook = async (setShowLoading) => {
-  setShowLoading(true);
-  await unlinkWithProvider(new FacebookAuthProvider());
-  setShowLoading(false);
-};
-
 const unlinkWithProvider = async (provider) => {
   // Unlink provider only if the user is already linked to the specific provider.
   try {
@@ -195,13 +177,10 @@ export {
   updatePokedexDocument,
   linkWithGoogle,
   linkWithTwitter,
-  linkWithFacebook,
   logInAnonymously,
   logInWithGoogle,
   logInWithTwitter,
-  logInWithFacebook,
   logout,
   unlinkWithGoogle,
   unlinkWithTwitter,
-  unlinkWithFacebook,
 };
