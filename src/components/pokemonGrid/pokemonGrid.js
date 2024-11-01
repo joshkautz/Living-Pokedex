@@ -31,7 +31,7 @@ const PokemonGrid = ({ pokemon, user, pokedex }) => {
             (pokemon) =>
               searchQuery === "" ||
               pokemon.idx.includes(searchQuery) ||
-              pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
+              pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()),
           )
           .map((pokemon) => {
             const caught =

@@ -124,7 +124,7 @@ const linkWithProvider = async (provider) => {
   // Link account with the provider if the user is not already linked to the provider.
   if (
     !auth.currentUser.providerData.some(
-      (currentProvider) => currentProvider.providerId === provider.providerId
+      (currentProvider) => currentProvider.providerId === provider.providerId,
     )
   ) {
     // On Desktop, prompt user to sign in with the provider by opening a pop-up window to the provider's sign-in page.

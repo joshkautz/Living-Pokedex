@@ -12,31 +12,21 @@ import { ReactComponent as Google } from "../../images/google-brands.inline.svg"
 import { ReactComponent as User } from "../../images/user-solid.inline.svg";
 
 const SignIn = () => {
-
   return (
     <div className={styles["signIn"]}>
       <h1 className={styles["signIn__h1"]}>Complete your Living Pokédex!</h1>
-      <button
-        className={styles["signIn__button"]}
-        onClick={logInWithGoogle}
-      >
+      <button className={styles["signIn__button"]} onClick={logInWithGoogle}>
         <Google />
         Sign in with Google
       </button>
-      <button
-        className={styles["signIn__button"]}
-        onClick={logInWithTwitter}
-      >
+      <button className={styles["signIn__button"]} onClick={logInWithTwitter}>
         <Twitter />
         Sign in with Twitter
       </button>
       <br />
       <hr></hr>
       <br />
-      <button
-        className={styles["signIn__button"]}
-        onClick={logInAnonymously}
-      >
+      <button className={styles["signIn__button"]} onClick={logInAnonymously}>
         <User />
         Continue as guest
       </button>

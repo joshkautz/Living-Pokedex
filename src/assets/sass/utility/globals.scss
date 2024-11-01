@@ -12,7 +12,7 @@ main {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  @include media(tablet, min){
+  @include media(tablet, min) {
     padding-top: $headingHeight;
   }
   &.fixed {
@@ -35,6 +35,6 @@ button.btn {
   z-index: $z_overlay;
 }
 
-.sr-only{
+.sr-only {
   @include sr_only;
 }

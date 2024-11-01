@@ -1,13 +1,17 @@
 ![Living Pokédex Banner](/README/banner.png "Living Pokédex Banner")
 
 # Living Pokédex 📝
+
 ![Production GitHub Workflow Status](https://github.com/joshkautz/Living-Pokedex-Create-React-App/actions/workflows/firebase-hosting-merge.yml/badge.svg "Production GitHub Workflow Status")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses Google Firebase services for authentication, hosting, data persistence, and analytics.
 
 ### [1. Development ](#development) 💻
+
 ### [2. Firebase](#firebase) 🔥
+
 ### [3. Sprites](#sprites) 🎨
+
 ### [4. Deployment](#deployment) 📦
 
 <br>
@@ -88,31 +92,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Firebase
 
 ## [.firebaserc](https://firebase.google.com/docs/cli#initialize_a_firebase_project)
->The **`.firebaserc`** file stores your settings for [managing project aliases](https://firebase.google.com/docs/cli#project_aliases) and [managing deploy targets](https://firebase.google.com/docs/cli/targets#manage_deploy_targets).
+
+> The **`.firebaserc`** file stores your settings for [managing project aliases](https://firebase.google.com/docs/cli#project_aliases) and [managing deploy targets](https://firebase.google.com/docs/cli/targets#manage_deploy_targets).
 
 ## [firebase.json](https://firebase.google.com/docs/hosting/full-config#where-to-define-config)
->You define your Firebase Hosting configuration in your **`firebase.json`** file. Firebase automatically creates your **`firebase.json`** file at the root of your project directory when you run the `firebase init` command.
+
+> You define your Firebase Hosting configuration in your **`firebase.json`** file. Firebase automatically creates your **`firebase.json`** file at the root of your project directory when you run the `firebase init` command.
 >
->You can find a [full **`firebase.json`** configuration example](https://firebase.google.com/docs/hosting/full-config#firebase-json_example) (covering only Firebase Hosting) at the bottom of the Firebase Docs page. Note that a **`firebase.json`** file can also contain [configurations for other Firebase services](https://firebase.google.com/docs/cli#the_firebasejson_file).
+> You can find a [full **`firebase.json`** configuration example](https://firebase.google.com/docs/hosting/full-config#firebase-json_example) (covering only Firebase Hosting) at the bottom of the Firebase Docs page. Note that a **`firebase.json`** file can also contain [configurations for other Firebase services](https://firebase.google.com/docs/cli#the_firebasejson_file).
 >
->You can check the deployed **`firebase.json`** content using the [Hosting REST API](https://firebase.google.com/docs/reference/hosting/rest/v1beta1/sites.releases/list?apix_params=%7B%22parent%22%3A%22sites%2F%3Cyour-site-name%3E%22%2C%22pageSize%22%3A1%7D).
+> You can check the deployed **`firebase.json`** content using the [Hosting REST API](https://firebase.google.com/docs/reference/hosting/rest/v1beta1/sites.releases/list?apix_params=%7B%22parent%22%3A%22sites%2F%3Cyour-site-name%3E%22%2C%22pageSize%22%3A1%7D).
 
 ## [firestore.indexes.json](https://firebase.google.com/docs/reference/firestore/indexes)
->Cloud Firestore automatically creates indexes to support the most common types of queries, but allows you to define custom indexes and index overrides as described in the [Cloud Firestore guides](https://firebase.google.com/docs/firestore/query-data/index-overview).
+
+> Cloud Firestore automatically creates indexes to support the most common types of queries, but allows you to define custom indexes and index overrides as described in the [Cloud Firestore guides](https://firebase.google.com/docs/firestore/query-data/index-overview).
 >
->You can create, modify and deploy custom indexes in the Firebase console, or using the CLI. From the CLI, edit your index configuration file, with default filename **`firestore.indexes.json`**, and deploy using the `firebase deploy` command.
+> You can create, modify and deploy custom indexes in the Firebase console, or using the CLI. From the CLI, edit your index configuration file, with default filename **`firestore.indexes.json`**, and deploy using the `firebase deploy` command.
 
 ## [firestore.rules](https://firebase.google.com/docs/firestore/security/get-started#use_the_firebase_cli)
->You can deploy rules using the [Firebase CLI](https://firebase.google.com/docs/cli). Using the CLI allows you to keep your rules under version control with your application code and deploy rules as part of your existing deployment process.
+
+> You can deploy rules using the [Firebase CLI](https://firebase.google.com/docs/cli). Using the CLI allows you to keep your rules under version control with your application code and deploy rules as part of your existing deployment process.
 >
->With [Cloud Firestore Security Rules](https://firebase.google.com/docs/firestore/security/rules-structure), you can focus on building a great user experience without having to manage infrastructure or write server-side authentication and authorization code.
+> With [Cloud Firestore Security Rules](https://firebase.google.com/docs/firestore/security/rules-structure), you can focus on building a great user experience without having to manage infrastructure or write server-side authentication and authorization code.
 >
->Security rules provide access control and data validation in a simple yet expressive format. To build user-based and role-based access systems that keep your users' data safe, you need to use Firebase Authentication with Cloud Firestore Security Rules.
+> Security rules provide access control and data validation in a simple yet expressive format. To build user-based and role-based access systems that keep your users' data safe, you need to use Firebase Authentication with Cloud Firestore Security Rules.
 
 <br>
 
 # Sprites
-Update the `pokemon.json` list (and `pokemon.js` list) with new pokemon that are released, and then run the following bash script to save the sprites for our Living Pokédex. *This requires [jq](https://github.com/stedolan/jq)*.
+
+Update the `pokemon.json` list (and `pokemon.js` list) with new pokemon that are released, and then run the following bash script to save the sprites for our Living Pokédex. _This requires [jq](https://github.com/stedolan/jq)_.
 
 ```bash
 for POKEMON in $(cat src/pokemon.json | jq -r '.[].slug')
@@ -129,6 +138,7 @@ done
 ### Deploy to Firebase Hosting Preview Channel
 
 Windows
+
 ```PowerShell
 npm run build
 $Date = Get-Date -Format "dddd-MM-dd-yyyy-HH-mm-ss"
@@ -137,6 +147,7 @@ firebase hosting:channel:deploy $Channel --expires 7d --project living-pokedex-d
 ```
 
 Linux
+
 ```Bash
 npm run build
 Date=$(date +'%A-%m-%d-%Y-%H-%M-%S')
@@ -145,13 +156,16 @@ firebase hosting:channel:deploy $Channel --expires 7d --project living-pokedex-d
 ```
 
 ### Deploy to Firebase Hosting Live Channel
+
 Windows
+
 ```PowerShell
 npm run build
 firebase deploy --only hosting --project living-pokedex-de070 --json
 ```
 
 Linux
+
 ```Bash
 npm run build
 firebase deploy --only hosting --project living-pokedex-de070 --json
@@ -165,7 +179,7 @@ firebase deploy --only hosting --project living-pokedex-de070 --json
 4. Firebase Hosting GitHub Action will build and deploy the new changes to the Live Channel on Firebase Hosting.
 
 # TODO:
-- [ ] Improve README about Sprites. Add bash script for PowerShell.
 
+- [ ] Improve README about Sprites. Add bash script for PowerShell.
 
 GitHub FIREBASE_TOKEN secret was created using `firebase login:ci` to create a token so that we can use the Firebase Tools CLI on the CI/CD system in GitHub Actions. When I get the list of existing preview channels.

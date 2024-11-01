@@ -24,7 +24,8 @@ body {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: inset -10px 10px 0 10px #ccc;
-  animation: fall 0.25s ease-in-out,
+  animation:
+    fall 0.25s ease-in-out,
     shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
 }
 .pokeball::before,
