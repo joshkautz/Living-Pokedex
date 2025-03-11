@@ -10,7 +10,6 @@ import { isDesktop } from "react-device-detect";
 
 import {
   GoogleAuthProvider,
-  TwitterAuthProvider,
   getAuth,
   signInAnonymously,
   signInWithPopup,
@@ -75,11 +74,6 @@ const logInWithGoogle = async () => {
   await signInWithProvider(new GoogleAuthProvider());
 };
 
-// Example: https://firebase.google.com/docs/auth/web/twitter-login
-const logInWithTwitter = async () => {
-  await signInWithProvider(new TwitterAuthProvider());
-};
-
 const signInWithProvider = async (provider) => {
   // On Desktop, prompt user to sign in with the provider by opening a pop-up window to the provider's sign-in page.
   // On Mobile, prompt user to sign in with the provider by redirecting to the provider's sign-in page.
@@ -114,17 +108,11 @@ const linkWithGoogle = async (setShowLoading) => {
   setShowLoading(false);
 };
 
-const linkWithTwitter = async (setShowLoading) => {
-  setShowLoading(true);
-  await linkWithProvider(new TwitterAuthProvider());
-  setShowLoading(false);
-};
-
 const linkWithProvider = async (provider) => {
   // Link account with the provider if the user is not already linked to the provider.
   if (
     !auth.currentUser.providerData.some(
-      (currentProvider) => currentProvider.providerId === provider.providerId
+      (currentProvider) => currentProvider.providerId === provider.providerId,
     )
   ) {
     // On Desktop, prompt user to sign in with the provider by opening a pop-up window to the provider's sign-in page.
@@ -153,12 +141,6 @@ const unlinkWithGoogle = async (setShowLoading) => {
   setShowLoading(false);
 };
 
-const unlinkWithTwitter = async (setShowLoading) => {
-  setShowLoading(true);
-  await unlinkWithProvider(new TwitterAuthProvider());
-  setShowLoading(false);
-};
-
 const unlinkWithProvider = async (provider) => {
   // Unlink provider only if the user is already linked to the specific provider.
   try {
@@ -176,11 +158,8 @@ export {
   getPokedexDocument,
   updatePokedexDocument,
   linkWithGoogle,
-  linkWithTwitter,
   logInAnonymously,
   logInWithGoogle,
-  logInWithTwitter,
   logout,
   unlinkWithGoogle,
-  unlinkWithTwitter,
 };

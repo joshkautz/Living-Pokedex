@@ -8,7 +8,9 @@ const PokemonCard = ({ pokemon, user, caught }) => {
       className={`${styles["pokemonCard"]} ${
         caught ? styles["pokemonCard--active"] : ""
       }`}
-      onClick={() => updatePokedexDocument(user, parseInt(pokemon.idx), !caught)}
+      onClick={() =>
+        updatePokedexDocument(user, parseInt(pokemon.idx), !caught)
+      }
     >
       <div className={styles["pokemonCard__img"]}>
         <img

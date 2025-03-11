@@ -28,6 +28,6 @@ jobs:
         run: |
           # Install Firebase Tools
           curl -sL https://firebase.tools | bash
-          
+
           # Deploy to Firebase Hosting
           firebase deploy --only hosting --token "$FIREBASE_TOKEN"

@@ -17,28 +17,27 @@ const App = () => {
   const [authValue, authLoading] = useAuthState(auth);
   const [docValue, docLoading] = useDocumentData(getPokedexDocument(authValue));
 
-  console.log({
-    authValue: authValue,
-    authLoading: authLoading,
-    docValue: docValue,
-    docLoading: docLoading,
-  });
-
-  const Overlay = (
-    <div className="overlay">
-      {(authLoading || docLoading) && <LoadingIndicator />}
-      {!(authLoading || docLoading) && <SignIn />}
-    </div>
-  );
+  const showSignIn = !authValue && !authLoading;
+  const showLoadingIndicator =
+    authLoading ||
+    docLoading ||
+    (authValue &&
+      authLoading === false &&
+      docValue === undefined &&
+      docLoading === false);
+  const showOverlay = showSignIn || showLoadingIndicator;
 
   return (
     <>
-      {authValue && !authLoading && !docLoading && <Header />}
-      <main
-        className={`${!authValue || authLoading || docLoading ? "fixed" : ""}`}
-      >
+      {!showOverlay && <Header />}
+      <main className={`${showOverlay ? "fixed" : ""}`}>
         <div className="container">
-          {(!authValue || authLoading || docLoading) && Overlay}
+          {showOverlay && (
+            <div className="overlay">
+              {showSignIn && <SignIn />}
+              {showLoadingIndicator && <LoadingIndicator />}
+            </div>
+          )}
           <PokemonGrid
             pokemon={pokemon}
             user={authValue}
