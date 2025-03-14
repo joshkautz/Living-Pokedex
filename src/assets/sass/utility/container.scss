@@ -1,20 +1,23 @@
 ///////////////////////////////////////
 /////////// Containers ////////////////
 //////////////////////////////////////
+@use "sass:map";
 @use "./mixins.scss" as *;
+@use "./variables.scss" as *;
+
 
 ///////// Build Container Mixin /////////
 @mixin container($container: $containerDefault) {
   box-sizing: border-box;
   display: block;
   margin: 0 auto;
-  padding: 0 map-get($container, "padding--mobile");
-  max-width: map-get($container, "max-width");
+  padding: 0 map.get($container, "padding--mobile");
+  max-width: map.get($container, "max-width");
   @include media(tablet, only) {
-    padding: 0 map-get($container, "padding--tablet");
+    padding: 0 map.get($container, "padding--tablet");
   }
   @include media(desktop) {
-    padding: 0 map-get($container, "padding--desktop");
+    padding: 0 map.get($container, "padding--desktop");
   }
 }
 
