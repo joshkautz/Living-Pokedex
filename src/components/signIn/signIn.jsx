@@ -6,8 +6,8 @@ import {
   logInWithGoogle,
 } from "../../firebase";
 
-import { ReactComponent as Google } from "../../images/google-brands.inline.svg";
-import { ReactComponent as User } from "../../images/user-solid.inline.svg";
+import Google from "../../images/google-brands.inline.svg?react";
+import User from "../../images/user-solid.inline.svg?react";
 
 const SignIn = () => {
   return (

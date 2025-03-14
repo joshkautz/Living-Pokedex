@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonCard from "./pokemonCard/pokemonCard";
 import styles from "./pokemonGrid.module.scss";
-import { ReactComponent as SearchIcon } from "../../images/magnifying-glass-solid.inline.svg";
+import SearchIcon from "../../images/magnifying-glass-solid.inline.svg?react";
 
 const PokemonGrid = ({ pokemon, user, pokedex }) => {
   const [searchQuery, setSearchQuery] = useState("");
