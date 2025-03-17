@@ -24,10 +24,13 @@ jobs:
 
       - name: Deploy to Firebase Hosting Live Channel
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX }}
         run: |
           # Install Firebase Tools
-          curl -sL https://firebase.tools | bash
+          npm install -g firebase-tools
 
-          # Deploy to Firebase Hosting
-          firebase deploy --only hosting --token "$FIREBASE_TOKEN"
+          echo "$GCP_SA_KEY" > /opt/gcp_key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
+
+          # Deploy to Firebase Functions
+          firebase deploy --only hosting

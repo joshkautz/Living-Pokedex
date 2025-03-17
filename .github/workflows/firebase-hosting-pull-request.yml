@@ -25,15 +25,18 @@ jobs:
 
       - name: Deploy to Firebase Hosting Preview Channel.
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX }}
         run: |
           # Install Firebase Tools
-          curl -sL https://firebase.tools | bash
+          npm install -g firebase-tools
+
+          echo "$GCP_SA_KEY" > /opt/gcp_key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
 
           # Deploy to Firebase Hosting Preview Channel.
           DATE=$(date +'%A-%m-%d-%Y-%H-%M-%S')
           CHANNEL="Preview-"$DATE
-          DEPLOYMENT_OUTPUT=$(firebase hosting:channel:deploy $CHANNEL --expires 3d --json --token "$FIREBASE_TOKEN")
+          DEPLOYMENT_OUTPUT=$(firebase hosting:channel:deploy $CHANNEL --expires 1d --json)
 
           # Prepare Firebase Hosting Preview Channel URL for GitHub environment file.
           PREVIEW_CHANNEL_URL=$(echo "$DEPLOYMENT_OUTPUT" | grep -E -o '(http|https)://[a-zA-Z0-9./?=_%:-]*.web.app')
@@ -50,13 +53,15 @@ jobs:
 
       - name: Add Firebase Hosting Preview Channel URL to API Key restrictions.
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIVING_POKEDEX }}
           PROJECT_NUMBER: 285902590177
           KEY_ID: 6003ecc6-a4eb-4405-be8c-076dd74b53d1
         run: |
           # Install Firebase Tools.
-          curl -sL https://firebase.tools | bash
+          npm install -g firebase-tools
+
+          echo "$GCP_SA_KEY" > /opt/gcp_key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
 
           # Add default referrers.
           allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
@@ -93,9 +98,6 @@ jobs:
           # Install Google's OAuth Tool.
           wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz
           tar -xvzf linux_amd64.tgz
-
-          # Set up Google Cloud Service Account.
-          echo "$SERVICE_ACCOUNT" > /opt/gcp_key.json
 
           # Create gcurl command.
           shopt -s expand_aliases
