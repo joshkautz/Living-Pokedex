@@ -62,7 +62,7 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
 
           # Add default referrers.
-          allowedReferrers="localhost hikers.social hiking-map-346514.web.app hiking-map-346514.firebaseapp.com"
+          allowedReferrers="localhost livingpokedex.com living-pokedex-de070.firebaseapp.com living-pokedex-de070.web.app"
           echo $allowedReferrers
 
           # Add preview channels.
